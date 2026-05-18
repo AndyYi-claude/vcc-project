@@ -1,82 +1,49 @@
-# VCC 项目管理仓库
+# 诺亚新加坡 VCC 设立 · 项目管理
 
-## 可视化入口
-
-> **浏览器直达（渲染版）：** https://gitee.com/AndyYi98/vcc-project/blob/main/01-dashboard.md
->
-> Gitee 原生渲染，表格清晰、层次分明，手机/电脑均可看。
->
-> **本地仪表盘：** 下载仓库后浏览器打开 `dashboard.html`（暗色主题项目大屏）
+本仓库追踪 VCC（可变资本公司）结构搭建全流程：牌照获批前置准备、VCC 注册、银行开户、税收激励申请及服务商对接。
 
 ---
 
-## 这是什么？
+## 如何查看
 
-本仓库用于追踪**诺亚新加坡 VCC（可变资本公司）设立项目**的整体进度、任务分配和沟通记录。项目目标：在 Olive 取得 MAS 资管牌照前后，完成 VCC 结构搭建、银行开户、税收激励申请及服务商对接。
+### 浏览器直接看
 
-## 如何使用？
+| 内容 | 链接 |
+|---|---|
+| 项目看板（待办 + 进度） | https://gitee.com/AndyYi98/vcc-project/blob/main/01-dashboard.md |
+| 任务分配（按人员） | https://gitee.com/AndyYi98/vcc-project/blob/main/02-tasks.md |
+| 沟通日志 | https://gitee.com/AndyYi98/vcc-project/blob/main/03-communications.md |
+| 风险与问题 | https://gitee.com/AndyYi98/vcc-project/blob/main/04-risks.md |
 
-### 如果你是项目成员
+### 用 Claude 查询
 
-在 **Claude 网页版**中打开对话，输入以下指令之一：
+在 Claude 网页版中输入：
 
-**查整体进度：**
 ```
-访问这个项目看板，告诉我当前整体进度和近期DDL：
+访问以下项目文件，告诉我当前进度、DDL 预警和我的待办：
 https://gitee.com/AndyYi98/vcc-project/raw/main/01-dashboard.md
-```
-
-**查我的待办：**
-```
-访问任务分配文件，告诉我[你的名字]名下的所有待办：
 https://gitee.com/AndyYi98/vcc-project/raw/main/02-tasks.md
 ```
-
-**查沟通历史：**
-```
-访问沟通日志，告诉我最近一次跟[MAS/律所/银行]的沟通结果：
-https://gitee.com/AndyYi98/vcc-project/raw/main/03-communications.md
-```
-
-**查会议纪要：**
-```
-访问这个目录，列出所有会议纪要：
-https://gitee.com/AndyYi98/vcc-project/raw/main/meeting-notes/2026-05-18-kickoff.md
-```
-
-### 如果你是 PM（Andy）
-
-在 Claude Code 中直接操作本仓库：
-
-- **更新进度**：「更新看板，XX里程碑已完成」
-- **分配任务**：「在任务分配中给 Kevin 新增待办：联系 JPM 确认开户材料」
-- **记录沟通**：「记录沟通日志：今天和 Lucas 通话讨论了 VCC 结构方案」
-- **检查 DDL**：「检查 DDL，看看哪些快到期了」
-- **生成周报**：「生成本周项目周报」
 
 ---
 
 ## 文件导航
 
-| 文件 | 用途 | 谁需要看 |
-|---|---|---|
-| [01-dashboard.md](./01-dashboard.md) | 里程碑总览、DDL、整体进度 | 全员 |
-| [02-tasks.md](./02-tasks.md) | 按角色的待办/进行中/已完成 | 全员 |
-| [03-communications.md](./03-communications.md) | 与外部方沟通记录 | 按需查阅 |
-| [04-risks.md](./04-risks.md) | 风险与待解决问题追踪 | 全员 |
-| [meeting-notes/](./meeting-notes/) | 历次会议纪要归档 | 按需查阅 |
-| [templates/](./templates/) | 周报模板、通知模板 | PM |
+| 文件 | 用途 |
+|---|---|
+| 01-dashboard.md | 待办 + 进展总览 + DDL 预警 + 关键决策 |
+| 02-tasks.md | 按人员列出所有行动项及来源 |
+| 03-communications.md | 与外部方的沟通记录 |
+| 04-risks.md | 风险追踪与问题列表 |
+| meeting-notes/ | 历次会议纪要归档 |
+| templates/ | 周报模板 |
 
 ---
 
 ## 项目背景
 
-- **项目名称**：诺亚新加坡 VCC 设立
+- **项目**：诺亚新加坡 VCC 设立
 - **PM**：Andy
-- **牵头人**：Kevin
-- **外部顾问**：Ian、Lucas（VCC 设立专业顾问）
-- **关键节点**：MAS 牌照下发（待定）→ VCC 注册 + 13O/13U 申请 → 银行开户 → 首支子基金上线
-
----
-
-> 最后更新：2026-05-18
+- **牵头**：Kevin
+- **外部顾问**：Ian、Lucas
+- **关键节点**：MAS 牌照下发 → VCC 注册 + 13O/13U 申请 → 银行开户 → 首支子基金上线
