@@ -8,24 +8,30 @@
 
 ### 如果你是项目成员
 
-在 **Claude 网页版**中打开对话，输入以下指令之一（替换 `{access_token}` 为实际的 Gitee Token）：
+在 **Claude 网页版**中打开对话，输入以下指令之一：
 
 **查整体进度：**
 ```
 访问这个项目看板，告诉我当前整体进度和近期DDL：
-https://gitee.com/{owner}/vcc-project/raw/main/01-项目看板.md?access_token={access_token}
+https://gitee.com/AndyYi98/vcc-project/raw/main/01-项目看板.md
 ```
 
 **查我的待办：**
 ```
 访问任务分配文件，告诉我[你的名字]名下的所有待办：
-https://gitee.com/{owner}/vcc-project/raw/main/02-任务分配.md?access_token={access_token}
+https://gitee.com/AndyYi98/vcc-project/raw/main/02-任务分配.md
 ```
 
 **查沟通历史：**
 ```
 访问沟通日志，告诉我最近一次跟[MAS/律所/银行]的沟通结果：
-https://gitee.com/{owner}/vcc-project/raw/main/03-沟通日志.md?access_token={access_token}
+https://gitee.com/AndyYi98/vcc-project/raw/main/03-沟通日志.md
+```
+
+**查会议纪要：**
+```
+访问这个目录，列出所有会议纪要：
+https://gitee.com/AndyYi98/vcc-project/raw/main/会议纪要/2026-05-18-启动会议.md
 ```
 
 ### 如果你是 PM（天翼）
