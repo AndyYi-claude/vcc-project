@@ -4,6 +4,14 @@
 
 ---
 
+## 项目仪表盘
+
+> **https://AndyYi-claude.github.io/vcc-project/dashboard.html**
+>
+> 可勾选待办、DDL 预警、进展总览、关键决策。手机/电脑均可。
+
+---
+
 ## 如何查看
 
 ### 浏览器直接看
