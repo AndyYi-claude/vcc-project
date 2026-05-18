@@ -13,25 +13,25 @@
 **查整体进度：**
 ```
 访问这个项目看板，告诉我当前整体进度和近期DDL：
-https://gitee.com/AndyYi98/vcc-project/raw/main/01-项目看板.md
+https://gitee.com/AndyYi98/vcc-project/raw/main/01-dashboard.md
 ```
 
 **查我的待办：**
 ```
 访问任务分配文件，告诉我[你的名字]名下的所有待办：
-https://gitee.com/AndyYi98/vcc-project/raw/main/02-任务分配.md
+https://gitee.com/AndyYi98/vcc-project/raw/main/02-tasks.md
 ```
 
 **查沟通历史：**
 ```
 访问沟通日志，告诉我最近一次跟[MAS/律所/银行]的沟通结果：
-https://gitee.com/AndyYi98/vcc-project/raw/main/03-沟通日志.md
+https://gitee.com/AndyYi98/vcc-project/raw/main/03-communications.md
 ```
 
 **查会议纪要：**
 ```
 访问这个目录，列出所有会议纪要：
-https://gitee.com/AndyYi98/vcc-project/raw/main/会议纪要/2026-05-18-启动会议.md
+https://gitee.com/AndyYi98/vcc-project/raw/main/meeting-notes/2026-05-18-kickoff.md
 ```
 
 ### 如果你是 PM（天翼）
@@ -50,12 +50,12 @@ https://gitee.com/AndyYi98/vcc-project/raw/main/会议纪要/2026-05-18-启动�
 
 | 文件 | 用途 | 谁需要看 |
 |---|---|---|
-| [01-项目看板.md](./01-项目看板.md) | 里程碑总览、DDL、整体进度 | 全员 |
-| [02-任务分配.md](./02-任务分配.md) | 按角色的待办/进行中/已完成 | 全员 |
-| [03-沟通日志.md](./03-沟通日志.md) | 与外部方沟通记录 | 按需查阅 |
-| [04-风险与问题.md](./04-风险与问题.md) | 风险与待解决问题追踪 | 全员 |
-| [会议纪要/](./会议纪要/) | 历次会议纪要归档 | 按需查阅 |
-| [模板/](./模板/) | 周报模板、通知模板 | PM |
+| [01-dashboard.md](./01-dashboard.md) | 里程碑总览、DDL、整体进度 | 全员 |
+| [02-tasks.md](./02-tasks.md) | 按角色的待办/进行中/已完成 | 全员 |
+| [03-communications.md](./03-communications.md) | 与外部方沟通记录 | 按需查阅 |
+| [04-risks.md](./04-risks.md) | 风险与待解决问题追踪 | 全员 |
+| [meeting-notes/](./meeting-notes/) | 历次会议纪要归档 | 按需查阅 |
+| [templates/](./templates/) | 周报模板、通知模板 | PM |
 
 ---
 
