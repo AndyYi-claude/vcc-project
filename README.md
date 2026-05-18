@@ -1,10 +1,12 @@
 # VCC 项目管理仓库
 
-## 可视化仪表盘
+## 可视化入口
 
-> **浏览器直达：** https://andyi98.gitee.io/vcc-project/dashboard.html
+> **浏览器直达（渲染版）：** https://gitee.com/AndyYi98/vcc-project/blob/main/01-dashboard.md
 >
-> 项目大屏，含时间线、DDL预警、任务分配、风险矩阵，手机/电脑均可看。
+> Gitee 原生渲染，表格清晰、层次分明，手机/电脑均可看。
+>
+> **本地仪表盘：** 下载仓库后浏览器打开 `dashboard.html`（暗色主题项目大屏）
 
 ---
 
