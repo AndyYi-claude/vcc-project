@@ -44,7 +44,7 @@ https://gitee.com/AndyYi98/vcc-project/raw/main/03-communications.md
 https://gitee.com/AndyYi98/vcc-project/raw/main/meeting-notes/2026-05-18-kickoff.md
 ```
 
-### 如果你是 PM（天翼）
+### 如果你是 PM（Andy）
 
 在 Claude Code 中直接操作本仓库：
 
@@ -72,7 +72,7 @@ https://gitee.com/AndyYi98/vcc-project/raw/main/meeting-notes/2026-05-18-kickoff
 ## 项目背景
 
 - **项目名称**：诺亚新加坡 VCC 设立
-- **PM**：天翼
+- **PM**：Andy
 - **牵头人**：Kevin
 - **外部顾问**：Ian、Lucas（VCC 设立专业顾问）
 - **关键节点**：MAS 牌照下发（待定）→ VCC 注册 + 13O/13U 申请 → 银行开户 → 首支子基金上线
