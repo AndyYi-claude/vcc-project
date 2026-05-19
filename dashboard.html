@@ -16,15 +16,17 @@
   }
   * { margin:0;padding:0;box-sizing:border-box; }
   body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:linear-gradient(180deg,#f0f4ff 0%,#f4f6f9 100%); color:var(--text); line-height:1.6; min-height:100vh; }
-  .container { max-width:1040px; margin:0 auto; padding:40px 20px; }
+  .container { max-width:1060px; margin:0 auto; padding:40px 20px; }
 
   .header { margin-bottom:24px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; }
   .header h1 { font-size:26px; font-weight:700; letter-spacing:-.5px; background:linear-gradient(135deg,#1e40af,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .header .sub { font-size:13px; color:var(--dim); margin-top:4px; }
-  .header .sub b { color:var(--accent); font-weight:600; }
-  .stat-row { display:flex; gap:4px; flex-wrap:wrap; }
-  .stat-pill { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:8px 16px; font-size:13px; color:var(--dim); box-shadow:var(--shadow); }
-  .stat-pill b { color:var(--text); font-size:20px; font-weight:700; }
+  .header .sub b { color:var(--read); font-weight:600; }
+  .header .sub b.red { color:var(--red); }
+
+  .team-bar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .team-chip { font-size:12px; padding:5px 12px; border-radius:14px; background:var(--card); border:1px solid var(--border); color:var(--dim); }
+  .team-chip strong { color:var(--text); }
 
   .ddl-row { display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap; }
   .ddl-card { flex:1; min-width:180px; background:var(--card); border-radius:var(--radius); padding:14px 18px; box-shadow:var(--shadow); border-left:4px solid var(--border); }
@@ -38,41 +40,27 @@
   .full { margin-bottom:20px; }
   .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); transition:box-shadow .2s; }
   .card:hover { box-shadow:var(--shadow-md); }
-  .card h2 { font-size:16px; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .card h2 { font-size:16px; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+  .card h3 { font-size:13px; font-weight:700; margin:14px 0 6px; color:var(--text); }
 
-  .section-label {
-    font-size:11px; font-weight:700; letter-spacing:.5px;
-    color: var(--accent); margin: 16px 0 6px; padding-top:12px;
-    border-top:1px solid var(--border);
-    display:flex; align-items:center; gap:6px;
-  }
-  .section-label:first-of-type { margin-top:0; padding-top:0; border-top:none; }
-  .section-label .tag { font-size:10px; padding:2px 8px; border-radius:10px; font-weight:600; }
-  .tag-internal { background:var(--accent-bg); color:var(--accent); }
-  .tag-external { background:var(--purple-bg); color:var(--purple); }
-
-  .person { margin-bottom:14px; }
-  .person:last-child { margin-bottom:0; }
   .person-header { font-size:14px; font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:6px; }
-  .avatar { width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; flex-shrink:0; }
-  .av-k { background:linear-gradient(135deg,#3b82f6,#1d4ed8); }
-  .av-a { background:linear-gradient(135deg,#8b5cf6,#6d28d9); }
-  .av-y { background:linear-gradient(135deg,#f59e0b,#d97706); }
-  .av-l { background:linear-gradient(135deg,#06b6d4,#0891b2); }
+  .avatar { width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; flex-shrink:0; }
+  .av-K { background:linear-gradient(135deg,#3b82f6,#1d4ed8); }
+  .av-D { background:linear-gradient(135deg,#6366f1,#4338ca); }
+  .av-Y { background:linear-gradient(135deg,#f59e0b,#d97706); }
+  .av-T { background:linear-gradient(135deg,#8b5cf6,#6d28d9); }
+  .av-I { background:linear-gradient(135deg,#10b981,#059669); }
+  .av-L { background:linear-gradient(135deg,#06b6d4,#0891b2); }
 
   .task-table { width:100%; border-collapse:collapse; font-size:13px; }
   .task-table td { padding:6px 8px; border-bottom:1px solid #f1f5f9; vertical-align:middle; }
   .task-table tr:last-child td { border-bottom:none; }
   .task-table tr:hover td { background:var(--bg); }
   .task-table .col-chk { width:22px; }
-  .task-table .col-status { width:32px; text-align:center; }
-  .task-table .col-name { min-width:140px; font-weight:500; }
-  .task-table .col-progress { font-size:12px; color:var(--dim); line-height:1.4; }
-  .task-table .col-progress .highlight { color:var(--accent); }
-  .task-table .col-progress .warn { color:var(--amber); }
-  .task-table .col-progress .good { color:var(--green); }
-  .task-table .col-ddl { width:70px; text-align:right; font-size:11px; color:var(--dim); white-space:nowrap; vertical-align:top; padding-top:8px; }
-  .task-table .col-src { width:52px; text-align:right; font-size:10px; color:var(--dim); white-space:nowrap; vertical-align:top; padding-top:8px; }
+  .task-table .col-status { width:30px; text-align:center; }
+  .task-table .col-name { min-width:130px; font-weight:500; }
+  .task-table .col-ddl { width:65px; text-align:right; font-size:11px; color:var(--dim); white-space:nowrap; padding-top:8px; }
+  .task-table .col-pri { width:28px; text-align:center; font-size:14px; }
   .task-table input[type=checkbox] { width:16px; height:16px; accent-color:var(--green); cursor:pointer; }
   tr.done td { opacity:.35; }
   tr.done .col-name { text-decoration:line-through; }
@@ -94,24 +82,21 @@
   .dec-list li:last-child { border-bottom:none; }
   .dec-dot { color:var(--accent); flex-shrink:0; }
 
-  /* Timeline */
+  .account-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .account-card { background:var(--bg); border-radius:8px; padding:12px; }
+  .account-card .acc-type { font-size:13px; font-weight:700; }
+  .account-card .acc-bank { font-size:11px; color:var(--accent); }
+  .account-card .acc-use { font-size:11px; color:var(--dim); margin-top:2px; }
+
   .tl { position:relative; padding-left:32px; }
   .tl::before { content:''; position:absolute; left:10px; top:4px; bottom:4px; width:2px; background:var(--border); }
   .tl-day { margin-bottom:20px; position:relative; }
   .tl-day:last-child { margin-bottom:0; }
-  .tl-day::before {
-    content:''; position:absolute; left:-26px; top:6px;
-    width:10px; height:10px; border-radius:50%;
-    background:var(--accent); border:2px solid var(--card);
-    box-shadow:0 0 0 2px var(--accent-bg); z-index:1;
-  }
+  .tl-day::before { content:''; position:absolute; left:-26px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid var(--card); box-shadow:0 0 0 2px var(--accent-bg); z-index:1; }
   .tl-date { font-size:14px; font-weight:700; margin-bottom:6px; }
-  .tl-event { font-size:12px; padding:3px 0; display:flex; align-items:flex-start; gap:8px; }
-  .tl-icon { font-size:14px; width:20px; text-align:center; flex-shrink:0; line-height:1.4; }
-  .tl-body { flex:1; }
-  .tl-links { margin-left:4px; }
-  .tl-links a { font-size:11px; color:var(--accent); text-decoration:none; margin-right:8px; white-space:nowrap; }
-  .tl-links a:hover { text-decoration:underline; }
+  .tl-event { font-size:12px; padding:3px 0; display:flex; gap:8px; }
+  .tl-icon { width:20px; text-align:center; flex-shrink:0; }
+  .tl-links a { font-size:11px; color:var(--accent); text-decoration:none; margin-right:8px; }
 
   .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#1e293b; color:#fff; padding:12px 24px; border-radius:8px; font-size:13px; opacity:0; transition:opacity .3s; pointer-events:none; z-index:100; box-shadow:0 10px 25px rgba(0,0,0,.15); }
   .toast.show { opacity:1; }
@@ -123,11 +108,7 @@
   .footer { text-align:center; padding:24px; font-size:12px; color:var(--dim); }
   .footer a { color:var(--accent); text-decoration:none; margin:0 6px; }
 
-  @media (max-width:750px) {
-    .grid { grid-template-columns:1fr; } .header { flex-direction:column; } .ddl-row { flex-direction:column; } .ddl-card { min-width:auto; } .container { padding:24px 12px; }
-    .task-table .col-progress { display:none; }
-    .task-table .col-ddl,.task-table .col-src { font-size:10px; }
-  }
+  @media (max-width:750px) { .grid { grid-template-columns:1fr; } .header { flex-direction:column; } .ddl-row { flex-direction:column; } .account-grid { grid-template-columns:1fr; } .container { padding:24px 12px; } .task-table .col-ddl { display:none; } }
 </style>
 </head>
 <body>
@@ -136,23 +117,29 @@
   <div class="header">
     <div>
       <h1>诺亚新加坡 VCC 设立</h1>
-      <div class="sub">Olive Asset Management · <b>P0 · 项目启动</b> · PM：天翼 · 更新：2026-05-19</div>
+      <div class="sub">MAS 资管牌照申请中 · <b class="red">🔴 银行开户为最高优先级</b> · PM：天翼 · 更新：2026-05-19</div>
     </div>
-    <div class="stat-row">
-      <div class="stat-pill"><b>8</b> 行动项</div>
-    </div>
+  </div>
+
+  <div class="team-bar">
+    <span class="team-chip"><strong>Kevin</strong> COO·合规运营</span>
+    <span class="team-chip"><strong>Derry</strong> 运营·银行对接</span>
+    <span class="team-chip"><strong>Yihao</strong> 投资负责人</span>
+    <span class="team-chip"><strong>天翼</strong> PM</span>
+    <span class="team-chip"><strong>Inez</strong> PM支持</span>
+    <span class="team-chip" style="border-color:var(--purple)"><strong>Lucas/Ian</strong> 外部法律顾问</span>
   </div>
 
   <div class="ddl-row">
     <div class="ddl-card urgent">
-      <div class="ddl-day">即刻</div>
-      <div class="ddl-name">拉建项目协同群</div>
-      <div class="ddl-who">Kevin</div>
+      <div class="ddl-day">本周</div>
+      <div class="ddl-name">JPM / DBS 银行文件清单</div>
+      <div class="ddl-who">Derry</div>
     </div>
     <div class="ddl-card urgent">
-      <div class="ddl-day">会后</div>
-      <div class="ddl-name">顾问发送报价单 + 参考文章</div>
-      <div class="ddl-who">Lucas / Ian</div>
+      <div class="ddl-day">本周</div>
+      <div class="ddl-name">账户需求说明书</div>
+      <div class="ddl-who">天翼 + Kevin</div>
     </div>
   </div>
 
@@ -161,166 +148,95 @@
     <div class="card">
       <h2>&#9744; 当前待办</h2>
 
-      <div class="section-label"><span class="tag tag-internal">诺亚方</span></div>
+      <h3>🔴 银行开户 <span style="font-weight:400;font-size:12px;color:var(--red)">最紧急</span></h3>
 
       <div class="person">
-        <div class="person-header"><span class="avatar av-k">K</span> Kevin（牵头）</div>
+        <div class="person-header"><span class="avatar av-D">D</span> Derry（银行对接）</div>
         <table class="task-table">
-          <tr data-id="k1">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">拉建项目协同群</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">即刻</td>
-            <td class="col-src">纪要·1</td>
-          </tr>
-          <tr data-id="k2">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">接触 JPM 确认托管开户材料</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">近期</td>
-            <td class="col-src">纪要·5</td>
-          </tr>
-          <tr data-id="k3">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">与 BOS 沟通启动 KYC</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">近期</td>
-            <td class="col-src">纪要·4</td>
-          </tr>
-          <tr data-id="k4">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">与 Lucas 确定 VCC 结构方案</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">牌照前 6-8周</td>
-            <td class="col-src">讨论</td>
-          </tr>
+          <tr data-id="d1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">&#9681;</span></td><td class="col-name">JPM/DBS 获取开户文件清单</td><td class="col-ddl">本周</td><td class="col-pri">🔴</td></tr>
+          <tr data-id="d2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">整理开户材料、协调内部签字</td><td class="col-ddl"></td><td class="col-pri">🔴</td></tr>
+          <tr data-id="d3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">律师初稿→提交银行预审KYC</td><td class="col-ddl"></td><td class="col-pri">🔴</td></tr>
         </table>
       </div>
 
       <div class="person">
-        <div class="person-header"><span class="avatar av-a">A</span> 天翼（PM）</div>
+        <div class="person-header"><span class="avatar av-K">K</span> Kevin（COO）</div>
         <table class="task-table">
-          <tr data-id="a1">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">统筹各方时间线</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">持续</td>
-            <td class="col-src">纪要·2</td>
-          </tr>
-          <tr data-id="a2">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">跟进 OCBC 开户推进</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">近期</td>
-            <td class="col-src">纪要·6</td>
-          </tr>
-          <tr data-id="a3">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">基金行政管理人选型</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl"></td>
-            <td class="col-src">选型</td>
-          </tr>
-          <tr data-id="a4">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">公司秘书/税务/四大选型</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl"></td>
-            <td class="col-src">选型</td>
-          </tr>
+          <tr data-id="k1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">&#9681;</span></td><td class="col-name">与JPM/DBS洽谈确定主合作行</td><td class="col-ddl">本周</td><td class="col-pri">🔴</td></tr>
+          <tr data-id="k2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">与Lucas确定VCC结构方案</td><td class="col-ddl"></td><td class="col-pri">🟡</td></tr>
+          <tr data-id="k3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">确定13O vs 13U税收方案</td><td class="col-ddl"></td><td class="col-pri">🟡</td></tr>
+          <tr data-id="k4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">比较JPM vs DBS方案</td><td class="col-ddl"></td><td class="col-pri">🔴</td></tr>
         </table>
       </div>
 
       <div class="person">
-        <div class="person-header"><span class="avatar av-y">Y</span> Yihao / Inez</div>
+        <div class="person-header"><span class="avatar av-T">T</span> 天翼（PM）+ Inez</div>
         <table class="task-table">
-          <tr data-id="y1">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">协助银行材料准备</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">并行</td>
-            <td class="col-src">辅助</td>
-          </tr>
-          <tr data-id="y2">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">合规审批流程跟进</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">持续</td>
-            <td class="col-src">持续</td>
-          </tr>
+          <tr data-id="t1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">整理账户需求说明书</td><td class="col-ddl">本周</td><td class="col-pri">🔴</td></tr>
+          <tr data-id="t2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">统筹银行开户进度</td><td class="col-ddl">持续</td><td class="col-pri">🔴</td></tr>
+          <tr data-id="t3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">服务商选型调研（后置）</td><td class="col-ddl"></td><td class="col-pri">🔵</td></tr>
         </table>
       </div>
 
-      <div class="section-label"><span class="tag tag-external">外部顾问</span></div>
+      <div class="person">
+        <div class="person-header"><span class="avatar av-Y">Y</span> Yihao（投资负责人）</div>
+        <table class="task-table">
+          <tr data-id="yh1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">明确投资策略与产品方向</td><td class="col-ddl"></td><td class="col-pri">🟡</td></tr>
+          <tr data-id="yh2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">投资标的分析文档</td><td class="col-ddl"></td><td class="col-pri">🟡</td></tr>
+        </table>
+      </div>
 
       <div class="person">
-        <div class="person-header"><span class="avatar av-l">L</span> Lucas / Ian</div>
+        <div class="person-header"><span class="avatar av-L">L</span> Lucas / Ian（外部律师）</div>
         <table class="task-table">
-          <tr data-id="l1">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">发送报价单 + 参考文章</td>
-            <td class="col-progress"></td>
-            <td class="col-ddl">会后</td>
-            <td class="col-src">纪要·3</td>
-          </tr>
-          <tr data-id="l2">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">启动 VCC 主 PPM 起草</td>
-            <td class="col-progress">待报价确认后启动，预估 6-8 周</td>
-            <td class="col-ddl">持续</td>
-            <td class="col-src">纪要·7</td>
-          </tr>
-          <tr data-id="l3">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">提交 13O/13U 申请</td>
-            <td class="col-progress">待牌照下发触发，可提前准备材料</td>
-            <td class="col-ddl">牌照下发日</td>
-            <td class="col-src">纪要·8</td>
-          </tr>
-          <tr data-id="l4">
-            <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
-            <td class="col-status"><span class="status-icon s-todo">&#9675;</span></td>
-            <td class="col-name">协助 VCC 注册 (ACRA)</td>
-            <td class="col-progress">待牌照下发后启动</td>
-            <td class="col-ddl">牌照当月</td>
-            <td class="col-src">讨论</td>
-          </tr>
+          <tr data-id="l1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">发送报价单+参考文章</td><td class="col-ddl"></td><td class="col-pri">🟢</td></tr>
+          <tr data-id="l2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">&#9675;</span></td><td class="col-name">启动PPM起草(6-8周)</td><td class="col-ddl"></td><td class="col-pri">🟢</td></tr>
         </table>
       </div>
     </div>
 
-    <!-- Progress Panel -->
+    <!-- Progress + Accounts Panel -->
     <div class="card">
-      <h2>&#9733; 进展总览</h2>
+      <h2>&#9733; 银行开户 · 进展总览</h2>
 
-      <div class="section-title">外部顾问 ↔ 内部团队</div>
+      <div class="section-title">VCC 银行账户架构</div>
+      <div class="account-grid">
+        <div class="account-card">
+          <div class="acc-type">托管账户</div>
+          <div class="acc-bank">JPM / DBS</div>
+          <div class="acc-use">基金资产保管 · NAV核算 · 投资交割</div>
+        </div>
+        <div class="account-card">
+          <div class="acc-type">运营账户</div>
+          <div class="acc-bank">JPM / DBS</div>
+          <div class="acc-use">管理费收支 · 日常运营支出</div>
+        </div>
+        <div class="account-card">
+          <div class="acc-type">资本催缴账户</div>
+          <div class="acc-bank">待定</div>
+          <div class="acc-use">LP capital call 资金归集</div>
+        </div>
+        <div class="account-card">
+          <div class="acc-type">子基金账户</div>
+          <div class="acc-bank">同托管行</div>
+          <div class="acc-use">各子基金独立资金隔离</div>
+        </div>
+      </div>
+
+      <div class="section-title">银行接洽进展</div>
       <table class="table-mini">
-        <tr><th>事项</th><th>状态</th><th>下一步</th></tr>
-        <tr><td>顾问报价 + 参考文章</td><td>待 Lucas/Ian 发送</td><td>Kevin 收到后评审</td></tr>
-        <tr><td>VCC 文件起草</td><td>待报价确认后启动</td><td>Lucas 执笔，Kevin 审核</td></tr>
-        <tr><td>VCC 结构方案</td><td>已初步讨论</td><td>Kevin + Lucas 择期深入</td></tr>
-        <tr><td>13O/13U 申请</td><td>待牌照触发</td><td>提前准备材料</td></tr>
+        <tr><th>银行</th><th>角色</th><th>状态</th><th>下一步</th></tr>
+        <tr><td>JPM</td><td>托管+运营（主）</td><td>洽谈中</td><td>获取开户文件清单</td></tr>
+        <tr><td>DBS</td><td>托管+运营（比选）</td><td>洽谈中</td><td>获取开户文件清单</td></tr>
       </table>
 
-      <div class="section-title">银行对接</div>
+      <div class="section-title">律师/文件进度</div>
       <table class="table-mini">
-        <tr><th>银行</th><th>用途</th><th>状态</th><th>下一步</th></tr>
-        <tr><td>JPM</td><td>托管行</td><td>待接洽</td><td>Kevin 获取开户文件清单</td></tr>
-        <tr><td>BOS</td><td>运营/账户</td><td>待接洽</td><td>Kevin 借人民币出境切入</td></tr>
-        <tr><td>OCBC</td><td>备选账户</td><td>待推进</td><td>利用草案文件缩短排队</td></tr>
+        <tr><th>事项</th><th>状态</th><th>负责人</th></tr>
+        <tr><td>报价单+参考文章</td><td>待发送</td><td>Lucas</td></tr>
+        <tr><td>PPM起草</td><td>待报价确认</td><td>Lucas团队</td></tr>
+        <tr><td>13O/13U申请</td><td>待牌照触发</td><td>Lucas+Kevin</td></tr>
+        <tr><td>VCC注册(ACRA)</td><td>待牌照下发</td><td>Lucas+天翼</td></tr>
       </table>
     </div>
   </div>
@@ -330,40 +246,27 @@
     <h2>&#9776; 项目时间线</h2>
     <div class="tl">
       <div class="tl-day">
+        <div class="tl-date">2026-05-19</div>
+        <div class="tl-event"><span class="tl-icon">✅</span><span>Kevin 完成「拉建项目协同群」</span></div>
+        <div class="tl-event"><span class="tl-icon">🔴</span><span>银行开户确立为最高优先级 · JPM/DBS 洽谈中</span></div>
+      </div>
+      <div class="tl-day">
         <div class="tl-date">2026-05-18</div>
-        <div class="tl-event">
-          <div class="tl-icon">&#128640;</div>
-          <div class="tl-body">
-            <b>召开 VCC 设立启动会议</b>
-            <div style="color:var(--dim)">诺亚方 (Kevin / Yihao / Inez) + 外部顾问 (Ian / Lucas)，讨论 VCC 结构搭建、税收激励、银行策略</div>
-            <div class="tl-links"><a href="https://github.com/AndyYi-claude/vcc-project/blob/main/meeting-notes/2026-05-18-kickoff.md" target="_blank">&#128206; 会议纪要</a></div>
-          </div>
-        </div>
-        <div class="tl-event">
-          <div class="tl-icon">&#128221;</div>
-          <div class="tl-body"><b>5 项关键决策确定</b><div style="color:var(--dim)">2 个 VCC、子基金上限 10-15、13O/13U 当日申请、三银行并行、投资分析留档</div></div>
-        </div>
-        <div class="tl-event">
-          <div class="tl-icon">&#128101;</div>
-          <div class="tl-body"><b>天翼 担任项目经理</b><div style="color:var(--dim)">统筹各方时间线，推动 VCC 设立全流程</div></div>
-        </div>
-        <div class="tl-event">
-          <div class="tl-icon">&#128193;</div>
-          <div class="tl-body"><b>项目管理体系上线</b>
-            <div class="tl-links"><a href="https://github.com/AndyYi-claude/vcc-project/blob/main/01-dashboard.md" target="_blank">&#128206; 看板</a><a href="https://github.com/AndyYi-claude/vcc-project/blob/main/02-tasks.md" target="_blank">&#128206; 任务</a><a href="https://github.com/AndyYi-claude/vcc-project/blob/main/05-timeline.md" target="_blank">&#128206; 时间线</a></div>
-          </div>
-        </div>
+        <div class="tl-event"><span class="tl-icon">🚀</span><span>召开 VCC 设立启动会议</span><div class="tl-links"><a href="https://github.com/AndyYi-claude/vcc-project/blob/main/meeting-notes/2026-05-18-kickoff.md" target="_blank">📎 纪要</a></div></div>
+        <div class="tl-event"><span class="tl-icon">📋</span><span>5项关键决策确定（2个VCC、三银行并行、13O/13U）</span></div>
+        <div class="tl-event"><span class="tl-icon">👤</span><span>天翼担任PM · 团队分工明确</span></div>
       </div>
     </div>
   </div>
 
+  <!-- Decisions -->
   <div class="card full">
     <h2>&#9830; 关键决策</h2>
     <ul class="dec-list">
       <li><span class="dec-dot">&#8226;</span> 设立 2 个 VCC：开放式策略 + 封闭式策略，不混搭</li>
       <li><span class="dec-dot">&#8226;</span> 单一 VCC 子基金上限 10-15 个</li>
       <li><span class="dec-dot">&#8226;</span> 牌照下发当日提交 13O/13U 申请</li>
-      <li><span class="dec-dot">&#8226;</span> JPM + BOS + OCBC 多线并行</li>
+      <li><span class="dec-dot">&#8226;</span> JPM + DBS 双线比选（原 BOS/OCBC 调整为 DBS）</li>
       <li><span class="dec-dot">&#8226;</span> 单一投资者须做实质性投资分析留档</li>
     </ul>
   </div>
@@ -374,7 +277,7 @@
     诺亚新加坡 VCC 项目管理 ·
     <a href="https://gitee.com/AndyYi98/vcc-project" target="_blank">Gitee</a>
     <a href="https://github.com/AndyYi-claude/vcc-project" target="_blank">GitHub</a>
-    <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/05-timeline.md" target="_blank">时间线</a>
+    <a href="https://AndyYi-claude.github.io/vcc-project/dashboard.html" target="_blank">仪表盘</a>
   </div>
 </div>
 
@@ -386,7 +289,7 @@ document.querySelectorAll('[data-id]').forEach(tr=>{
 });
 function toggleTask(cb){
   const tr=cb.closest('tr'), id=tr.getAttribute('data-id'), n=tr.querySelector('.col-name').textContent.trim();
-  if(cb.checked){ tr.classList.add('done'); localStorage.setItem('vcc-'+id,'1'); showToast('已完成：「'+n+'」— 请在企业微信告知 天翼'); }
+  if(cb.checked){ tr.classList.add('done'); localStorage.setItem('vcc-'+id,'1'); showToast('已完成：「'+n+'」—— 请在企业微信告知天翼'); }
   else { tr.classList.remove('done'); localStorage.removeItem('vcc-'+id); }
 }
 function resetAll(){
