@@ -22,6 +22,7 @@
 | 任务分配（按人员） | https://gitee.com/AndyYi98/vcc-project/blob/main/02-tasks.md |
 | 沟通日志 | https://gitee.com/AndyYi98/vcc-project/blob/main/03-communications.md |
 | 风险与问题 | https://gitee.com/AndyYi98/vcc-project/blob/main/04-risks.md |
+| 项目时间线 | https://gitee.com/AndyYi98/vcc-project/blob/main/05-timeline.md |
 
 ### 用 Claude 查询
 
@@ -43,6 +44,7 @@ https://gitee.com/AndyYi98/vcc-project/raw/main/02-tasks.md
 | 02-tasks.md | 按人员列出所有行动项及来源 |
 | 03-communications.md | 与外部方的沟通记录 |
 | 04-risks.md | 风险追踪与问题列表 |
+| 05-timeline.md | 项目时间线与事件归档 |
 | meeting-notes/ | 历次会议纪要归档 |
 | templates/ | 周报模板 |
 

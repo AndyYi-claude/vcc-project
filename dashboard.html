@@ -88,6 +88,34 @@
   .dec-list li:last-child { border-bottom:none; }
   .dec-dot { color:var(--accent); flex-shrink:0; }
 
+  /* Timeline */
+  .tl { position:relative; padding-left:32px; }
+  .tl::before { content:''; position:absolute; left:10px; top:4px; bottom:4px; width:2px; background:var(--border); }
+  .tl-day { margin-bottom:20px; position:relative; }
+  .tl-day:last-child { margin-bottom:0; }
+  .tl-day::before {
+    content:''; position:absolute; left:-26px; top:6px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--card);
+    box-shadow:0 0 0 2px var(--accent-bg);
+    z-index:1;
+  }
+  .tl-date { font-size:14px; font-weight:700; margin-bottom:6px; }
+  .tl-event {
+    font-size:12px; padding:3px 0; display:flex; align-items:flex-start; gap:8px;
+  }
+  .tl-icon {
+    font-size:14px; width:20px; text-align:center; flex-shrink:0;
+    line-height:1.4;
+  }
+  .tl-body { flex:1; }
+  .tl-links { margin-left:4px; }
+  .tl-links a {
+    font-size:11px; color:var(--accent); text-decoration:none;
+    margin-right:8px; white-space:nowrap;
+  }
+  .tl-links a:hover { text-decoration:underline; }
+
   .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#1e293b; color:#fff; padding:12px 24px; border-radius:8px; font-size:13px; opacity:0; transition:opacity .3s; pointer-events:none; z-index:100; box-shadow:0 10px 25px rgba(0,0,0,.15); }
   .toast.show { opacity:1; }
 
@@ -107,7 +135,7 @@
   <div class="header">
     <div>
       <h1>诺亚新加坡 VCC 设立</h1>
-      <div class="sub">Olive Asset Management · <b>P0 · 项目启动</b> · PM：Andy · 更新：2026-05-18</div>
+      <div class="sub">Olive Asset Management · <b>P0 · 项目启动</b> · PM：Andy · 更新：2026-05-19</div>
     </div>
     <div class="stat-row">
       <div class="stat-pill"><b>8</b> 行动项</div>
@@ -198,8 +226,59 @@
     </div>
   </div>
 
+  <!-- Timeline -->
+  <div class="card" style="margin-bottom:20px">
+    <h2>&#9776; 项目时间线</h2>
+    <div class="tl">
+
+      <div class="tl-day">
+        <div class="tl-date">2026-05-18</div>
+
+        <div class="tl-event">
+          <div class="tl-icon">&#128640;</div>
+          <div class="tl-body">
+            <b>召开 VCC 设立启动会议</b>
+            <div style="color:var(--dim)">诺亚方 (Kevin / Yihao / Inez) + 外部顾问 (Ian / Lucas)，讨论 VCC 结构搭建、税收激励、银行策略</div>
+            <div class="tl-links">
+              <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/meeting-notes/2026-05-18-kickoff.md" target="_blank">&#128206; 会议纪要</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-event">
+          <div class="tl-icon">&#128221;</div>
+          <div class="tl-body">
+            <b>5 项关键决策确定</b>
+            <div style="color:var(--dim)">设立 2 个 VCC、子基金上限 10-15、13O/13U 当日申请、三银行并行、投资分析留档</div>
+          </div>
+        </div>
+
+        <div class="tl-event">
+          <div class="tl-icon">&#128101;</div>
+          <div class="tl-body">
+            <b>Andy 担任项目经理</b>
+            <div style="color:var(--dim)">统筹各方时间线，推动 VCC 设立全流程</div>
+          </div>
+        </div>
+
+        <div class="tl-event">
+          <div class="tl-icon">&#128193;</div>
+          <div class="tl-body">
+            <b>项目管理体系上线</b>
+            <div class="tl-links">
+              <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/01-dashboard.md" target="_blank">&#128206; 项目看板</a>
+              <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/02-tasks.md" target="_blank">&#128206; 任务分配</a>
+              <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/05-timeline.md" target="_blank">&#128206; 时间线</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="card" style="margin-bottom:16px">
-    <h2>&#9830; 关键决策（5/18 启动会议）</h2>
+    <h2>&#9830; 关键决策</h2>
     <ul class="dec-list">
       <li><span class="dec-dot">&#8226;</span> 设立 2 个 VCC：开放式策略 + 封闭式策略，不混搭</li>
       <li><span class="dec-dot">&#8226;</span> 单一 VCC 子基金上限 10-15 个</li>
@@ -216,6 +295,7 @@
     诺亚新加坡 VCC 项目管理 ·
     <a href="https://gitee.com/AndyYi98/vcc-project" target="_blank">Gitee</a>
     <a href="https://github.com/AndyYi-claude/vcc-project" target="_blank">GitHub</a>
+    <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/05-timeline.md" target="_blank">时间线文件</a>
   </div>
 
 </div>
