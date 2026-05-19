@@ -53,7 +53,7 @@ https://gitee.com/AndyYi98/vcc-project/raw/main/02-tasks.md
 ## 项目背景
 
 - **项目**：诺亚新加坡 VCC 设立
-- **PM**：Andy
+- **PM**：天翼
 - **牵头**：Kevin
 - **外部顾问**：Ian、Lucas
 - **关键节点**：MAS 牌照下发 → VCC 注册 + 13O/13U 申请 → 银行开户 → 首支子基金上线

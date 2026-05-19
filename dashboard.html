@@ -136,7 +136,7 @@
   <div class="header">
     <div>
       <h1>诺亚新加坡 VCC 设立</h1>
-      <div class="sub">Olive Asset Management · <b>P0 · 项目启动</b> · PM：Andy · 更新：2026-05-19</div>
+      <div class="sub">Olive Asset Management · <b>P0 · 项目启动</b> · PM：天翼 · 更新：2026-05-19</div>
     </div>
     <div class="stat-row">
       <div class="stat-pill"><b>8</b> 行动项</div>
@@ -202,7 +202,7 @@
       </div>
 
       <div class="person">
-        <div class="person-header"><span class="avatar av-a">A</span> Andy（PM）</div>
+        <div class="person-header"><span class="avatar av-a">A</span> 天翼（PM）</div>
         <table class="task-table">
           <tr data-id="a1">
             <td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td>
@@ -345,7 +345,7 @@
         </div>
         <div class="tl-event">
           <div class="tl-icon">&#128101;</div>
-          <div class="tl-body"><b>Andy 担任项目经理</b><div style="color:var(--dim)">统筹各方时间线，推动 VCC 设立全流程</div></div>
+          <div class="tl-body"><b>天翼 担任项目经理</b><div style="color:var(--dim)">统筹各方时间线，推动 VCC 设立全流程</div></div>
         </div>
         <div class="tl-event">
           <div class="tl-icon">&#128193;</div>
@@ -386,7 +386,7 @@ document.querySelectorAll('[data-id]').forEach(tr=>{
 });
 function toggleTask(cb){
   const tr=cb.closest('tr'), id=tr.getAttribute('data-id'), n=tr.querySelector('.col-name').textContent.trim();
-  if(cb.checked){ tr.classList.add('done'); localStorage.setItem('vcc-'+id,'1'); showToast('已完成：「'+n+'」— 请在企业微信告知 Andy'); }
+  if(cb.checked){ tr.classList.add('done'); localStorage.setItem('vcc-'+id,'1'); showToast('已完成：「'+n+'」— 请在企业微信告知 天翼'); }
   else { tr.classList.remove('done'); localStorage.removeItem('vcc-'+id); }
 }
 function resetAll(){
