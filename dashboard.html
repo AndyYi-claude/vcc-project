@@ -101,6 +101,25 @@
   .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#1e293b; color:#fff; padding:12px 24px; border-radius:8px; font-size:13px; opacity:0; transition:opacity .3s; pointer-events:none; z-index:100; box-shadow:0 10px 25px rgba(0,0,0,.15); }
   .toast.show { opacity:1; }
 
+  /* Process Flow */
+  .phase-flow { display:flex; flex-direction:column; gap:14px; }
+  .phase-row { }
+  .phase-head { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .phase-num { font-size:11px; font-weight:700; color:#fff; background:var(--accent); border-radius:4px; padding:2px 8px; min-width:32px; text-align:center; }
+  .phase-name { font-size:13px; font-weight:600; min-width:70px; }
+  .phase-bar { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+  .phase-fill { height:100%; background:var(--green); border-radius:3px; transition:width .3s; }
+  .phase-fill.waiting { background:var(--amber); }
+  .phase-fill.later { background:var(--dim); }
+  .phase-stat { font-size:12px; font-weight:600; color:var(--dim); min-width:36px; text-align:right; }
+  .phase-steps { display:flex; flex-wrap:wrap; gap:6px; padding-left:42px; }
+  .step { font-size:11px; padding:2px 8px; border-radius:4px; background:var(--bg); white-space:nowrap; }
+  .step.done { background:var(--green-bg); color:var(--green); }
+  .step.wip { background:var(--amber-bg); color:var(--amber); font-weight:600; }
+  .step.todo { color:var(--dim); }
+  .step.waiting { background:var(--amber-bg); color:var(--amber); }
+  .step.later { color:var(--dim); opacity:.6; }
+
   .reset-bar { text-align:center; margin-top:16px; }
   .reset-bar button { background:none; border:1px solid var(--border); padding:6px 16px; border-radius:6px; font-size:12px; color:var(--dim); cursor:pointer; transition:all .15s; }
   .reset-bar button:hover { border-color:var(--red); color:var(--red); }
@@ -238,6 +257,122 @@
         <tr><td>13O/13U申请</td><td>待牌照触发</td><td>Lucas+Kevin</td></tr>
         <tr><td>VCC注册(ACRA)</td><td>待牌照下发</td><td>Lucas+天翼</td></tr>
       </table>
+    </div>
+  </div>
+
+  <!-- Full Process Flow -->
+  <div class="card full">
+    <h2>&#9878; 全流程进度</h2>
+
+    <div class="phase-flow">
+      <!-- P0 -->
+      <div class="phase-row">
+        <div class="phase-head">
+          <div class="phase-num">P0</div>
+          <div class="phase-name">项目启动</div>
+          <div class="phase-bar"><div class="phase-fill" style="width:67%"></div></div>
+          <div class="phase-stat">2/3</div>
+        </div>
+        <div class="phase-steps">
+          <span class="step done" title="已完成">✓ 确定项目团队与分工</span>
+          <span class="step done" title="已完成">✓ 拉建协同沟通群</span>
+          <span class="step todo">○ 顾问发送报价+参考文件</span>
+        </div>
+      </div>
+      <!-- P1 -->
+      <div class="phase-row">
+        <div class="phase-head">
+          <div class="phase-num">P1</div>
+          <div class="phase-name">结构设计</div>
+          <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
+          <div class="phase-stat">0/5</div>
+        </div>
+        <div class="phase-steps">
+          <span class="step todo">○ VCC数量与策略划分</span>
+          <span class="step todo">○ 子基金规划</span>
+          <span class="step todo">○ 13O vs 13U 税收方案</span>
+          <span class="step todo">○ 单一投资者应对方案</span>
+          <span class="step todo">○ 注册地址/公司秘书</span>
+        </div>
+      </div>
+      <!-- P2 -->
+      <div class="phase-row">
+        <div class="phase-head">
+          <div class="phase-num">P2</div>
+          <div class="phase-name">文件起草</div>
+          <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
+          <div class="phase-stat">0/5</div>
+        </div>
+        <div class="phase-steps">
+          <span class="step todo">○ 主PPM起草</span>
+          <span class="step todo">○ 子基金补充文件</span>
+          <span class="step todo">○ VCC章程(Constitution)</span>
+          <span class="step todo">○ 13O/13U申请材料</span>
+          <span class="step todo">○ 法律文件内部审核</span>
+        </div>
+      </div>
+      <!-- P3 -->
+      <div class="phase-row">
+        <div class="phase-head">
+          <div class="phase-num">P3</div>
+          <div class="phase-name">牌照+注册</div>
+          <div class="phase-bar"><div class="phase-fill waiting" style="width:0%"></div></div>
+          <div class="phase-stat">0/4</div>
+        </div>
+        <div class="phase-steps">
+          <span class="step waiting">⏳ MAS牌照获批</span>
+          <span class="step todo">○ ACRA提交VCC注册</span>
+          <span class="step todo">○ 同日提交13O/13U</span>
+          <span class="step todo">○ 取得VCC UEN号</span>
+        </div>
+      </div>
+      <!-- P4 -->
+      <div class="phase-row">
+        <div class="phase-head">
+          <div class="phase-num">P4</div>
+          <div class="phase-name">银行开户</div>
+          <div class="phase-bar"><div class="phase-fill" style="width:10%"></div></div>
+          <div class="phase-stat">0.5/5</div>
+        </div>
+        <div class="phase-steps">
+          <span class="step wip">◐ 托管账户 · JPM/DBS洽谈中</span>
+          <span class="step todo">○ 运营/管理账户</span>
+          <span class="step todo">○ 备选账户</span>
+          <span class="step todo">○ 子基金账户</span>
+          <span class="step todo">○ 资本催缴账户</span>
+        </div>
+      </div>
+      <!-- P5 -->
+      <div class="phase-row">
+        <div class="phase-head">
+          <div class="phase-num">P5</div>
+          <div class="phase-name">服务商</div>
+          <div class="phase-bar"><div class="phase-fill later" style="width:0%"></div></div>
+          <div class="phase-stat">0/5</div>
+        </div>
+        <div class="phase-steps">
+          <span class="step later">🔵 基金行政管理人</span>
+          <span class="step later">🔵 审计师(四大)</span>
+          <span class="step later">🔵 税务顾问</span>
+          <span class="step later">🔵 公司秘书</span>
+          <span class="step later">🔵 托管人签约</span>
+        </div>
+      </div>
+      <!-- P6 -->
+      <div class="phase-row">
+        <div class="phase-head">
+          <div class="phase-num">P6</div>
+          <div class="phase-name">运营上线</div>
+          <div class="phase-bar"><div class="phase-fill later" style="width:0%"></div></div>
+          <div class="phase-stat">0/4</div>
+        </div>
+        <div class="phase-steps">
+          <span class="step later">🔵 首个子基金上线</span>
+          <span class="step later">🔵 首个投资人onboarding</span>
+          <span class="step later">🔵 后续子基金复制</span>
+          <span class="step later">🔵 持续合规运转</span>
+        </div>
+      </div>
     </div>
   </div>
 

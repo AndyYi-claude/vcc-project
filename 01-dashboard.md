@@ -103,4 +103,62 @@ MAS 资管牌照申请中 · VCC 设立全面推进 · PM 天翼
 
 ---
 
+---
+
+## 全流程进度（31步 · 6阶段）
+
+### P0 · 项目启动 `2/3`
+
+| ✓ | 确定项目团队与分工 | — |
+| ✓ | 拉建协同沟通群 | Kevin |
+| ○ | 顾问发送报价+参考文件 | Lucas |
+
+### P1 · 结构设计 `0/5`
+
+| ○ | VCC数量与策略划分 | Kevin + Lucas |
+| ○ | 子基金规划 | Kevin + Lucas |
+| ○ | 13O vs 13U 税收方案 | Kevin + Lucas |
+| ○ | 单一投资者应对方案 | Lucas |
+| ○ | 注册地址/公司秘书 | 天翼 |
+
+### P2 · 文件起草 `0/5` — 外部律师主导
+
+| ○ | 主PPM起草 | Lucas团队 |
+| ○ | 子基金补充文件 | Lucas团队 |
+| ○ | VCC章程(Constitution) | Lucas团队 |
+| ○ | 13O/13U申请材料准备 | Lucas + Kevin |
+| ○ | 法律文件内部审核 | Kevin |
+
+### P3 · 牌照+注册 `0/4` — 外部依赖
+
+| ⏳ | MAS资管牌照获批 | MAS |
+| ○ | ACRA提交VCC注册 | Lucas + 天翼 |
+| ○ | 同日提交13O/13U申请 | Lucas + Kevin |
+| ○ | 取得VCC UEN号 | Lucas |
+
+### P4 · 银行开户 `0.5/5` — 最高优先级
+
+| ◐ | 托管账户 · JPM/DBS洽谈中 | Kevin + Derry |
+| ○ | 运营/管理账户 | Kevin + Derry |
+| ○ | 备选账户 | Kevin + Derry |
+| ○ | 子基金账户 | Kevin + Derry |
+| ○ | 资本催缴账户 | Kevin + Derry |
+
+### P5 · 服务商 `0/5` — 不急，后置
+
+| 🔵 | 基金行政管理人 | 天翼 + Inez |
+| 🔵 | 审计师(四大) | 天翼 + Inez |
+| 🔵 | 税务顾问 | 天翼 + Inez |
+| 🔵 | 公司秘书 | 天翼 + Inez |
+| 🔵 | 托管人签约 | Kevin |
+
+### P6 · 运营上线 `0/4` — 等待前置
+
+| 🔵 | 首个子基金上线 | Yihao + 全体 |
+| 🔵 | 首个投资人onboarding | Yihao + Kevin |
+| 🔵 | 后续子基金复制 | Yihao + Lucas |
+| 🔵 | 持续合规运转 | Kevin + 天翼 |
+
+---
+
 > 任务明细：[02-tasks.md](./02-tasks.md) · 时间线：[05-timeline.md](./05-timeline.md) · 风险：[04-risks.md](./04-risks.md)
