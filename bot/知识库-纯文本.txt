@@ -1,0 +1,49 @@
+=== VCC 项目知识库 ===
+
+## 项目信息
+- 项目名称：诺亚新加坡 VCC 设立
+- PM：天翼
+- 仪表盘：https://AndyYi-claude.github.io/vcc-project/dashboard.html
+
+## 团队映射
+- Kevin / kevin → Kevin
+- 天翼 / 天翼 → 天翼
+- Lucas / Ian → Lucas
+- Yihao → Yihao
+- Inez → Inez
+
+## 活跃任务清单
+
+Kevin 的任务：
+- 拉建项目协同群
+- 接触 JPM 确认托管开户材料
+- 与 BOS 沟通启动 KYC
+- 与 Lucas 确定 VCC 结构方案
+
+天翼 的任务：
+- 统筹各方时间线
+- 跟进 OCBC 开户推进
+- 基金行政管理人选型
+- 公司秘书/税务/四大选型
+
+Lucas/Ian 的任务：
+- 发送报价单 + 参考文章
+- 启动 VCC 主 PPM 起草
+- 提交 13O/13U 申请
+- 协助 VCC 注册 (ACRA)
+
+Yihao/Inez 的任务：
+- 协助银行材料准备
+- 合规审批流程跟进
+- 投资标的分析文档
+
+## 任务匹配规则
+当有人说"完成了XX"或"XX做完了"，将XX与上述任务名称匹配。
+如果无法匹配，列出所有未完成任务供对方选择。
+如果匹配到多项，选择最接近的一项，并确认"你是否指：XX？"
+
+## HTTP 请求触发
+匹配成功后，发送请求到：
+URL: https://api.github.com/repos/AndyYi-claude/vcc-project/actions/workflows/279226441/dispatches
+Token: <你的GitHub Token，填入后勿提交到仓库>
+Body: {"ref":"main","inputs":{"task_name":"任务名","completed_by":"完成人"}}
