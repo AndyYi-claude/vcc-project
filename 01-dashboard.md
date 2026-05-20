@@ -145,7 +145,7 @@ MAS 资管牌照申请中 · VCC 设立全面推进 · PM 天翼
 | ○ | 同日提交13O/13U申请 | Lucas + Kevin |
 | ○ | 取得VCC UEN号 | Lucas |
 
-### P4 · 银行开户 `0.5/5` — 最高优先级
+### P4 · 银行开户 `1/5` — 最高优先级
 
 | ◐ | 托管账户 · JPM/DBS洽谈中 | Kevin + Derry |
 | ○ | 运营/管理账户 | Kevin + Derry |
