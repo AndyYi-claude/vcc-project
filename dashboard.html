@@ -52,9 +52,8 @@
   .task-table tr:hover td { background:var(--bg); }
   .task-table .col-chk { width:22px; }
   .task-table .col-status { width:30px; text-align:center; }
-  .task-table .col-name { min-width:120px; font-weight:500; }
-  .task-table .col-who { width:70px; font-size:11px; color:var(--dim); text-align:right; }
-  .task-table .col-ddl { width:65px; text-align:right; font-size:11px; color:var(--dim); padding-top:8px; }
+  .task-table .col-name { min-width:110px; font-weight:500; }
+  .task-table .col-ddl { width:60px; text-align:right; font-size:11px; color:var(--dim); padding-top:8px; }
   .task-table input[type=checkbox] { width:16px; height:16px; accent-color:var(--green); cursor:pointer; }
   tr.done td { opacity:.35; }
   tr.done .col-name { text-decoration:line-through; }
@@ -64,8 +63,12 @@
   .s-wip { color:var(--amber); }
   .s-done { color:var(--green); }
 
-  .section-title { font-size:13px; font-weight:700; color:var(--accent); margin:14px 0 6px; padding-top:12px; border-top:1px solid var(--border); }
-  .section-title:first-of-type { margin-top:0; padding-top:0; border-top:none; }
+  .section-label {
+    font-size:11px; font-weight:700; letter-spacing:.5px;
+    color: var(--accent); margin: 14px 0 6px; padding-top:10px;
+    border-top:1px solid var(--border);
+  }
+  .section-label:first-of-type { margin-top:0; padding-top:0; border-top:none; }
 
   .table-mini { width:100%; font-size:12px; border-collapse:collapse; margin-top:6px; }
   .table-mini th { text-align:left; color:var(--dim); font-weight:600; padding:4px 8px; border-bottom:1px solid var(--border); font-size:11px; }
@@ -87,16 +90,14 @@
   .tl-links a { font-size:11px; color:var(--accent); text-decoration:none; margin-right:8px; }
 
   /* Process flow */
-  .phase-flow { display:flex; flex-direction:column; gap:14px; }
-  .phase-head { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .phase-flow { display:flex; flex-direction:column; gap:12px; }
+  .phase-head { display:flex; align-items:center; gap:10px; }
   .phase-num { font-size:11px; font-weight:700; color:#fff; background:var(--accent); border-radius:4px; padding:2px 8px; min-width:32px; text-align:center; }
-  .phase-name { font-size:13px; font-weight:600; min-width:70px; }
+  .phase-num.hot { background:var(--red); }
+  .phase-name { font-size:13px; font-weight:600; min-width:68px; }
   .phase-bar { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
-  .phase-fill { height:100%; background:var(--green); border-radius:3px; transition:width .3s; }
-  .phase-stat { font-size:12px; font-weight:600; color:var(--dim); min-width:36px; text-align:right; }
-  .phase-steps { display:flex; flex-wrap:wrap; gap:6px; padding-left:42px; }
-  .step { font-size:11px; padding:2px 8px; border-radius:4px; background:var(--bg); }
-  .step.done { background:var(--green-bg); color:var(--green); }
+  .phase-fill { height:100%; background:var(--green); border-radius:3px; }
+  .phase-stat { font-size:12px; font-weight:600; color:var(--dim); min-width:38px; text-align:right; }
 
   .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#1e293b; color:#fff; padding:12px 24px; border-radius:8px; font-size:13px; opacity:0; transition:opacity .3s; pointer-events:none; z-index:100; box-shadow:0 10px 25px rgba(0,0,0,.15); }
   .toast.show { opacity:1; }
@@ -144,11 +145,11 @@
   </div>
 
   <div class="grid">
-    <!-- TODO Panel -->
+    <!-- LEFT: TODO Panel -->
     <div class="card">
       <h2>当前待办</h2>
 
-      <div class="section-title">🔴 银行开户</div>
+      <div class="section-label">🔴 银行开户</div>
 
       <div class="person">
         <div class="person-header"><span class="avatar av-K">K</span> Kevin（COO）</div>
@@ -173,7 +174,6 @@
           <tr data-id="t1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开立银行账户整体框架</td><td class="col-ddl">本周</td></tr>
           <tr data-id="t2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开户材料、协调内部签字</td><td class="col-ddl"></td></tr>
           <tr data-id="t3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">协调对接律师初稿 → 预审 KYC</td><td class="col-ddl"></td></tr>
-          <tr data-id="t4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">服务商选型调研</td><td class="col-ddl">后置</td></tr>
         </table>
       </div>
 
@@ -185,71 +185,112 @@
         </table>
       </div>
 
-      <div class="section-title">🟢 外部律师</div>
-
       <div class="person">
-        <div class="person-header"><span class="avatar av-L">L</span> Lucas / Ian</div>
+        <div class="person-header"><span class="avatar av-L">L</span> Lucas / Ian（外部律师）</div>
         <table class="task-table">
           <tr data-id="l1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">发送报价单 + VCC 参考文章</td><td class="col-ddl"></td></tr>
           <tr data-id="l2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">启动 PPM 起草（6-8 周）</td><td class="col-ddl">报价后</td></tr>
           <tr data-id="l3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">讨论并确定整体 VCC 设立框架</td><td class="col-ddl"></td></tr>
         </table>
       </div>
+
+      <div class="person">
+        <div class="person-header">🔵 天翼 + Inez（服务商选型 · 后置）</div>
+        <table class="task-table">
+          <tr data-id="t4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">基金行政管理人 / 审计（四大）/ 税务 / 公司秘书</td><td class="col-ddl">后置</td></tr>
+        </table>
+      </div>
     </div>
 
-    <!-- Progress + Flow -->
-    <div class="card">
-      <h2>全流程进度</h2>
-      <div class="phase-flow">
+    <!-- RIGHT: Progress Panel -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
 
-        <div class="phase-head">
-          <span class="phase-num">P0</span>
-          <span class="phase-name">项目启动</span>
-          <div class="phase-bar"><div class="phase-fill" style="width:67%;background:var(--green)"></div></div>
-          <span class="phase-stat">2/3</span>
-        </div>
+      <div class="card">
+        <h2>VCC 银行账户架构</h2>
+        <table class="table-mini">
+          <tr><th>账户类型</th><th>用途</th><th>意向行</th><th>状态</th></tr>
+          <tr><td>托管账户</td><td>基金资产保管、NAV核算、投资交割</td><td>JPM / DBS</td><td>洽谈中</td></tr>
+          <tr><td>运营账户</td><td>管理费收支、日常运营</td><td>JPM / DBS</td><td>洽谈中</td></tr>
+          <tr><td>资本催缴账户</td><td>LP capital call 资金归集</td><td>待定</td><td>待启动</td></tr>
+          <tr><td>子基金账户</td><td>伞形结构下各子基金独立隔离</td><td>同托管行</td><td>待结构确定</td></tr>
+        </table>
+      </div>
 
-        <div class="phase-head">
-          <span class="phase-num">P1</span>
-          <span class="phase-name">结构设计</span>
-          <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
-          <span class="phase-stat">0/5</span>
-        </div>
+      <div class="card">
+        <h2>外部顾问 ↔ 内部团队</h2>
+        <table class="table-mini">
+          <tr><th>事项</th><th>状态</th><th>下一步</th></tr>
+          <tr><td>律师报价 + 参考文章</td><td>待 Lucas 发送</td><td>收到后评审启动</td></tr>
+          <tr><td>VCC 主 PPM 起草</td><td>待报价确认</td><td>Lucas 执笔，Kevin 审核</td></tr>
+          <tr><td>VCC 结构方案</td><td>已初步讨论</td><td>Kevin + Lucas 深入</td></tr>
+          <tr><td>13O/13U 申请</td><td>待牌照触发</td><td>提前准备材料</td></tr>
+        </table>
+      </div>
 
-        <div class="phase-head">
-          <span class="phase-num">P2</span>
-          <span class="phase-name">文件起草</span>
-          <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--dim)"></div></div>
-          <span class="phase-stat">0/5</span>
-        </div>
+      <div class="card">
+        <h2>银行比选</h2>
+        <table class="table-mini">
+          <tr><th>银行</th><th>角色</th><th>优势</th><th>状态</th></tr>
+          <tr><td>JPM</td><td>主托管候选</td><td>ARK 已有合作、全球托管能力强</td><td>洽谈中</td></tr>
+          <tr><td>DBS</td><td>托管备选 / 运营户候选</td><td>本地强、效率可能更快</td><td>洽谈中</td></tr>
+          <tr><td>BOS</td><td>运营户候选</td><td>客户关系可降本提速</td><td>待接洽</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
 
-        <div class="phase-head">
-          <span class="phase-num">P3</span>
-          <span class="phase-name">牌照+注册</span>
-          <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--amber)"></div></div>
-          <span class="phase-stat">0/4</span>
-        </div>
+  <!-- Process Flow -->
+  <div class="card" style="margin-bottom:20px">
+    <h2>全流程进度（31步 · 6阶段）</h2>
+    <div class="phase-flow">
 
-        <div class="phase-head" style="font-weight:700;">
-          <span class="phase-num" style="background:var(--red)">P4</span>
-          <span class="phase-name" style="color:var(--red)">银行开户</span>
-          <div class="phase-bar"><div class="phase-fill" style="width:10%;background:var(--red)"></div></div>
-          <span class="phase-stat" style="color:var(--red)">10%</span>
-        </div>
+      <div class="phase-head">
+        <span class="phase-num">P0</span>
+        <span class="phase-name">项目启动</span>
+        <div class="phase-bar"><div class="phase-fill" style="width:67%;background:var(--green)"></div></div>
+        <span class="phase-stat">2/3</span>
+      </div>
 
-        <div class="phase-head">
-          <span class="phase-num">P5</span>
-          <span class="phase-name">服务商选型</span>
-          <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--dim)"></div></div>
-          <span class="phase-stat">后置</span>
-        </div>
+      <div class="phase-head">
+        <span class="phase-num">P1</span>
+        <span class="phase-name">结构设计</span>
+        <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
+        <span class="phase-stat">0/5</span>
+      </div>
 
-        <div class="phase-head">
-          <span class="phase-num">P6</span>
-          <span class="phase-name">运营上线</span>
-          <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--dim)"></div></div>
-          <span class="phase-stat">等待</span>
-        </div>
+      <div class="phase-head">
+        <span class="phase-num">P2</span>
+        <span class="phase-name">文件起草</span>
+        <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--dim)"></div></div>
+        <span class="phase-stat">0/5</span>
+      </div>
+
+      <div class="phase-head">
+        <span class="phase-num">P3</span>
+        <span class="phase-name">牌照+注册</span>
+        <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--amber)"></div></div>
+        <span class="phase-stat">0/4</span>
+      </div>
+
+      <div class="phase-head">
+        <span class="phase-num hot">P4</span>
+        <span class="phase-name" style="color:var(--red)">银行开户</span>
+        <div class="phase-bar"><div class="phase-fill" style="width:10%;background:var(--red)"></div></div>
+        <span class="phase-stat" style="color:var(--red)">10%</span>
+      </div>
+
+      <div class="phase-head">
+        <span class="phase-num">P5</span>
+        <span class="phase-name">服务商选型</span>
+        <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--dim)"></div></div>
+        <span class="phase-stat">后置</span>
+      </div>
+
+      <div class="phase-head">
+        <span class="phase-num">P6</span>
+        <span class="phase-name">运营上线</span>
+        <div class="phase-bar"><div class="phase-fill" style="width:0%;background:var(--dim)"></div></div>
+        <span class="phase-stat">等待</span>
       </div>
     </div>
   </div>
@@ -267,13 +308,6 @@
         <div class="tl-event"><div class="tl-icon">🚀</div>召开 VCC 设立启动会议</div>
         <div class="tl-event"><div class="tl-icon">📋</div>5 项关键决策（2 VCC / 10-15子基金 / 13O13U / 三行并行 / 投资分析留档）</div>
         <div class="tl-event"><div class="tl-icon">👤</div>天翼担任 PM</div>
-        <div class="tl-event">
-          <div class="tl-icon">📁</div>
-          <div class="tl-links">
-            <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/meeting-notes/2026-05-18-kickoff.md" target="_blank">会议纪要</a>
-            <a href="https://github.com/AndyYi-claude/vcc-project/blob/main/01-dashboard.md" target="_blank">看板</a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
