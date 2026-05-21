@@ -1,124 +1,112 @@
-# project-kickstart
+# 项目管理看板生成器
 
-Generate a complete project management dashboard from a simple config. Produces a GitHub Pages-hosted interactive dashboard with TODO tracking, progress overview, process flow, timeline, and team management.
+用户输入 `/project-kickstart` 即可启动。
 
-## How to invoke
+---
+
+## 流程
+
+一轮问一个问题，用户回答后再问下一个。不要一长串全抛出来。
+
+### 第 1 问：项目叫什么？
+
+> 项目名称是什么？一句话描述？
+
+拿到项目名和一句话描述。
+
+### 第 2 问：谁是 PM？
+
+> 谁来当项目经理？
+
+### 第 3 问：团队成员？
+
+> 有哪些人参与？每个人告诉我：名字、角色、负责什么。
+> 比如：张三，COO，合规和运营总负责
+
+用户说"好了"或"就这些"时结束。
+
+### 第 4 问：当前要做的事？
+
+> 每个人现在有什么任务？告诉我：谁、做什么、截止时间（没有就说"暂无"）、紧急程度（🔴紧急/🟡重要/🟢常规/🔵不急）。
+> 比如：张三，联系银行谈开户，本周完成，🔴
+
+### 第 5 问：分几个阶段？
+
+> 项目分几个阶段？每个阶段叫什么？每个阶段有哪些具体步骤？
+> 比如：P0 项目启动——确定团队（已完成）、开启动会（待启动）
+
+如果用户不知道怎么分，建议 6 个阶段：启动 → 设计 → 执行 → 审批 → 收尾 → 运营。
+
+### 第 6 问：做过哪些关键决策？
+
+> 已经确定的重要决定有哪些？
+
+### 第 7 问：想跟踪哪些进展？
+
+> 除了待办，还有哪些事情你想随时看到进度？比如供应商对接情况、预算执行情况等。
+
+### 第 8 问：怎么分享？
+
+> 看板生成后怎么分享？
+> A. 纯本地——文件存电脑，双击 HTML 就能看（推荐，最快）
+> B. Gitee——上传到码云，同事通过链接看
+> C. GitHub Pages——上传到 GitHub，自动生成网页链接
+
+---
+
+## 生成
+
+根据以上信息，生成以下文件：
 
 ```
-/project-kickstart
+项目文件夹/
+├── dashboard.html     # 交互看板——待办、进展、流程、时间线，双击即可打开
+├── README.md          # 项目说明，告诉同事怎么用
+├── 01-看板.md         # Markdown 版看板
+├── 02-任务.md         # 任务清单
+├── 03-沟通日志.md      # 沟通记录模板
+├── 04-风险.md         # 风险追踪模板
+└── 05-时间线.md       # 时间线模板
 ```
 
-Or with a pre-written config:
+### HTML 看板结构
 
 ```
-/project-kickstart --config path/to/config.yaml
+┌── 标签：项目看板 | 架构图 ──────────┐
+├── DDL 预警卡片 ────────────────────┤
+├─────────────┬──────────────────────┤
+│ 左：当前待办  │ 右：进展总览          │
+│ （每人名下任务）│ （用户说的各模块进展） │
+├─────────────┴──────────────────────┤
+│ 全流程进度条（P0-P6）              │
+│ 时间线                            │
+│ 关键决策                          │
+└───────────────────────────────────┘
 ```
 
-## Workflow
+关键功能：
+- 每人名下有待办表格，可勾选标记完成
+- 勾选后弹出提示"请在企业微信群内同步"
+- 每个阶段有进度条（如 0/5、2/3）
+- 响应式，手机也能看
+- 架构图标签页放一个占位 iframe，用户后续可替换为自己的架构图
 
-### Step 0: Choose deployment mode
+### 如果选 A（纯本地）
 
-Ask the user FIRST:
+生成完文件后告诉用户：
 
-> "看板生成后，你想怎么分享给同事？"
+> 搞定了。双击 `dashboard.html` 就能在浏览器打开看板。要看 Markdown 版的话打开 `01-看板.md`。以后要修改，告诉我"更新 XX 任务"就行。
 
-| 选项 | 适用场景 | 需要什么 |
-|---|---|---|
-| **A · Gitee 托管**（推荐国内） | 国内团队、免翻墙、免费 | Gitee 账号（1分钟注册） |
-| **B · GitHub Pages** | 新加坡/海外团队 | GitHub 账号 |
-| **C · 纯本地** | 仅自己看、或发文件给同事 | 什么都不需要 |
+### 如果选 B 或 C（上传仓库）
 
-根据选择调整后续步骤：
-- 选 A：部署到 Gitee，提供 Gitee blob URL + 本地 dashboard.html
-- 选 B：部署到 GitHub Pages，提供在线交互版链接
-- 选 C：只生成本地文件，dashboard.html 浏览器直接打开即可用
+帮用户初始化 Git、创建远程仓库、push。输出对应的在线链接。
 
-Ask the user these questions interactively (one at a time or in groups):
+---
 
-1. **Project basics**: name, subtitle (one-line description), PM name, start date
-2. **Team**: for each member — name, role, short avatar label (1-2 chars), responsibilities
-3. **Priorities**: ordered list of what's urgent right now (e.g. "银行开户 > 结构设计 > 文件起草")
-4. **Tasks**: for each person — what they're doing, status (todo/wip/done), DDL, priority (red/yellow/green/blue)
-5. **Phases**: P0-P6 phases, each with steps (status + name + owner)
-6. **Key decisions**: list of decisions made
-7. **Progress sections**: named sections with table rows (for the right panel overview)
-8. **GitHub username**: for Pages URL generation
+## 重要
 
-### Step 2: Generate config file
-
-Save a `project-config.yaml` in the project directory so the setup can be reproduced.
-
-### Step 3: Generate project files
-
-Create this structure under the project directory:
-
-```
-project/
-├── dashboard.html          # Interactive dashboard
-├── README.md               # Entry guide
-├── 01-dashboard.md         # Markdown dashboard
-├── 02-tasks.md             # Markdown task list
-├── 03-communications.md    # Communication log template
-├── 04-risks.md             # Risk tracking template
-├── 05-timeline.md          # Timeline template
-└── .github/workflows/
-    └── pages.yml           # Auto-deploy to GitHub Pages
-```
-
-Use the HTML template in `templates/dashboard.html`. Replace all `{{PLACEHOLDER}}` values with user-provided data.
-
-### Step 4: Deploy
-
-#### Option A · Gitee（推荐国内）
-
-1. 帮用户注册 Gitee（如未注册）：gitee.com/signup
-2. 在 Gitee 上创建**公开**仓库
-3. `git init && git checkout -b main`
-4. `git add -A && git commit -m "project kickstart"`
-5. `git remote add origin https://gitee.com/USER/REPO.git`
-6. `git push -u origin main`
-7. 输出 Markdown 看板链接：`https://gitee.com/USER/REPO/blob/main/01-dashboard.md`
-8. 提醒：dashboard.html 需下载到本地用浏览器打开（Gitee 不托管 HTML Pages）
-
-#### Option B · GitHub Pages
-
-1. `git init && git checkout -b main`
-2. `git add -A && git commit -m "project kickstart"`
-3. 创建 GitHub 公开仓库
-4. `git remote add origin https://github.com/USER/REPO.git`
-5. `git push -u origin main`
-6. 输出：`https://USER.github.io/REPO/dashboard.html`
-7. GitHub Pages 自动部署（等待约30秒）
-
-#### Option C · 纯本地
-
-1. 不初始化 Git，文件直接生成在项目目录
-2. 告诉用户：双击 `dashboard.html` 即可在浏览器打开
-3. 分享方式：把整个文件夹压缩发同事，或放到共享网盘
-
-### Step 5: Handover
-
-根据部署方式告诉用户：
-- **看板链接**（A 为 Gitee blob URL，B 为 GitHub Pages URL，C 为本地文件路径）
-- **如何更新**：「在 Claude Code 中告诉 PM 更新任务，Claude 会改文件并 push（A/B）/ 保存本地（C）」
-- 后续可选：加企业微信机器人自动更新、加 Gitee 镜像
-
-## Dashboard features
-
-The generated dashboard includes:
-- Tab switcher (Dashboard / Architecture diagram)
-- DDL warning cards at top
-- Left: TODO list by person, with checkboxes and status indicators
-- Right: Progress overview sections
-- Below: 6-phase process flow with progress bars
-- Timeline section
-- Key decisions section
-- Responsive design (mobile-friendly)
-- Architecture tab (user can replace the placeholder iframe with their own diagram)
-
-## Important notes
-
-- Keep generated dashboard content in sync with markdown files
-- All user data must be properly escaped for HTML
-- The GitHub repo must be PUBLIC for GitHub Pages to work on free tier
-- Remind users they can later add: enterprise WeChat bot automation, Gitee mirror for China access
+- 问问题用中文，回复用中文
+- 每次只问一个问题
+- 用户回答不完整就追问补充
+- 生成的 dashboard.html 数据要和 Markdown 文件一致
+- 没有架构图就放占位 tab，不强制
