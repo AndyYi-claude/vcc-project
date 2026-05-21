@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCC Umbrella 架构图 · Olive GP</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;background:#060b14;color:#d4dbe6;line-height:1.65;padding-bottom:60px}
+  .container{max-width:860px;margin:0 auto;padding:36px 20px}
+  .hero{text-align:center;padding:44px 20px 24px;background:linear-gradient(180deg,#0a1020,#060b14);border-bottom:1px solid #152035}
+  .hero h1{font-size:2.2em;font-weight:900;letter-spacing:2px;margin-bottom:4px}
+  .hero .sub{color:#4b5b75;font-size:.92em}
+
+  .chain{display:flex;flex-direction:column;align-items:center;gap:0}
+  .link{display:flex;flex-direction:column;align-items:center;width:100%}
+  .arrow-down{font-size:1.5em;color:#334155;line-height:1;margin:2px 0;user-select:none}
+  .arrow-down.thick{font-size:2em;color:#3b82f6}
+
+  .card{border:1px solid;border-radius:12px;padding:14px 20px;text-align:center;box-shadow:0 3px 16px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center;gap:2px}
+  .card-regulator{border-color:#ef4444;background:#140a0a;max-width:440px}
+  .card-regulator .title{color:#f87171}
+  .card-manager{border-color:#f59e0b;background:#140e06;max-width:440px}
+  .card-manager .title{color:#fbbf24}
+  .card-fund{border-color:#3b82f6;background:#08101e;max-width:440px}
+  .card-fund .title{color:#60a5fa}
+  .card-investor{border-color:#22c55e;background:#061208}
+  .card-investor .title{color:#4ade80}
+  .card-service{border-color:#8b5cf6;background:#0c0918}
+  .card-service .title{color:#a78bfa}
+  .card-bank{border-color:#06b6d4;background:#061314}
+  .card-bank .title{color:#22d3ee}
+  .card-portfolio{border-color:#64748b;background:#0b0e12}
+  .card-portfolio .title{color:#94a3b8}
+
+  .card .title{font-weight:700;font-size:1.05em;letter-spacing:1px}
+  .card .desc{font-size:.82em;color:#64748b}
+
+  .card-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;width:100%}
+  .card-row .card{flex:1 1 180px;max-width:240px;min-width:160px}
+
+  .section-block{width:100%;border:1px solid #1d2d44;border-radius:14px;padding:20px;background:#0a0f1a}
+  .section-block h3{font-size:.95em;color:#94a3b8;margin-bottom:14px;text-align:center;letter-spacing:2px}
+
+  .bank-table{width:100%;border-collapse:collapse;font-size:.82em;margin-top:8px}
+  .bank-table th{background:#111a2b;padding:10px 12px;text-align:left;font-weight:700;color:#94a3b8;border-bottom:2px solid #1e3050}
+  .bank-table td{padding:8px 12px;border-bottom:1px solid #121e30;vertical-align:top}
+  .bank-table tr:hover td{background:#0a111f}
+  .bank-table .bank-name{font-weight:700;color:#22d3ee}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr}}
+
+  .hflow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:8px 0}
+  .hflow .hop{font-size:.78em;color:#5a6980;font-weight:700}
+  hr.section-break{border:none;border-top:1px solid #152035;margin:40px 0}
+  footer{text-align:center;padding:28px;color:#364153;font-size:.8em;border-top:1px solid #152035;margin-top:40px}
+
+  .pill{display:inline-block;background:rgba(255,255,255,.06);padding:2px 9px;border-radius:10px;font-size:.76em;margin:2px 4px}
+  .legend-row{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center;margin-bottom:32px;font-size:.78em}
+  .legend-row span{display:flex;align-items:center;gap:5px}
+  .legend-row .dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Olive GP · VCC Umbrella 架构图</h1>
+  <p class="sub">新加坡可变资本公司结构 · 治理层级 · 资金流向 · 服务商生态</p>
+</div>
+
+<div class="container">
+
+<div class="legend-row">
+  <span><span class="dot" style="background:#ef4444"></span> 监管</span>
+  <span><span class="dot" style="background:#f59e0b"></span> 管理人</span>
+  <span><span class="dot" style="background:#3b82f6"></span> 基金实体</span>
+  <span><span class="dot" style="background:#22c55e"></span> 投资人</span>
+  <span><span class="dot" style="background:#8b5cf6"></span> 服务商</span>
+  <span><span class="dot" style="background:#06b6d4"></span> 银行</span>
+  <span><span class="dot" style="background:#64748b"></span> 投资标的</span>
+</div>
+
+<div class="chain">
+
+  <!-- MAS -->
+  <div class="card card-regulator">
+    <div class="title">Monetary Authority of Singapore</div>
+    <div class="desc">VCC 注册审批 · 13O/13U 税务激励审批 · 持牌机构监管 · CMS 牌照</div>
+  </div>
+
+  <div class="arrow-down">▼</div>
+
+  <!-- Olive GP -->
+  <div class="card card-manager">
+    <div class="title">Olive GP · Fund Manager (LFMC/RFMC)</div>
+    <div class="desc">发起并管理 VCC · 投资决策与退出策略 · 聘请 Fund Admin / 律师 / 审计师 / 托管行 · 收取管理费及附带权益 (Carry)</div>
+  </div>
+
+  <div class="arrow-down thick">▼</div>
+
+  <!-- VCC -->
+  <div class="card card-fund">
+    <div class="title">VCC Umbrella (UEN: TBD)</div>
+    <div class="desc">单一法人实体 · 伞形结构 · Subfund 间资产负债法定隔离 (s.29 VCCA) · 统一董事会</div>
+  </div>
+
+  <div class="arrow-down thick">▼</div>
+
+  <!-- SUBFUNDS -->
+  <div class="card-row">
+    <div class="card card-fund">
+      <div class="title">Subfund 1</div>
+      <div class="desc">封闭式 PE 策略<br>独立 NAV · 独立 LP<br>独立银行子账户</div>
+    </div>
+    <div class="card card-fund">
+      <div class="title">Subfund 2</div>
+      <div class="desc">开放式流动策略<br>独立 NAV · 独立 LP<br>独立银行子账户</div>
+    </div>
+    <div class="card card-fund">
+      <div class="title">Subfund N …</div>
+      <div class="desc">按需设立<br>条款差异显著 → 新 SF<br>仅费用条款不同 → 新 Class</div>
+    </div>
+  </div>
+
+  <div class="arrow-down thick">▼</div>
+</div>
+
+<!-- Two Column: Capital Flow + Service Providers -->
+<div class="two-col" style="margin-bottom:16px">
+
+  <div class="section-block">
+    <h3>Capital Flow · 资金路径</h3>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:.82em">
+      <div style="text-align:center;padding:8px;background:#0e1522;border-radius:8px;border:1px solid #1d2d44">
+        <span style="color:#4ade80;font-weight:700">LP / Investors</span>
+        <br>Subscription Agreement → Capital Call Notice → Wire Transfer
+      </div>
+      <div style="text-align:center;color:#3b82f6;font-size:1.2em">▼ Contribution</div>
+      <div style="text-align:center;padding:8px;background:#0e1522;border-radius:8px;border:1px solid #1d2d44">
+        <span style="color:#60a5fa;font-weight:700">Subfund Bank Account</span>
+        <br>Per-SF segregation · Independent reconciliation
+      </div>
+      <div style="text-align:center;color:#3b82f6;font-size:1.2em">▼ Deployment</div>
+      <div style="text-align:center;padding:8px;background:#0e1522;border-radius:8px;border:1px solid #1d2d44">
+        <span style="color:#94a3b8;font-weight:700">Portfolio Companies</span>
+        <br>Equity / Convertible · Independent valuation by Fund Admin
+      </div>
+      <div style="text-align:center;color:#22c55e;font-size:1.2em">▲ Distribution (Return of Capital + Profit)</div>
+      <div style="text-align:center;font-size:.78em;color:#64748b">
+        Proceeds → Subfund → Waterfall Distribution → LP
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <h3>Service Providers · 服务商生态</h3>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:.82em">
+
+      <div style="padding:10px;background:#0c0918;border-radius:8px;border-left:3px solid #8b5cf6">
+        <span class="title" style="color:#a78bfa;font-size:.92em">Fund Administrator</span>
+        <div style="color:#8b99ae;font-size:.8em;margin-top:2px">
+          NAV calculation · Capital call / distribution processing · LP reporting · MAS annual filing · FATCA / CRS
+        </div>
+        <div style="color:#64748b;font-size:.75em;margin-top:2px">
+          Contracting party: VCC (on behalf of each Subfund) &nbsp;|&nbsp; RFP pending
+        </div>
+      </div>
+
+      <div style="padding:10px;background:#0c0918;border-radius:8px;border-left:3px solid #8b5cf6">
+        <span class="title" style="color:#a78bfa;font-size:.92em">Legal Counsel · Lucas / Ian</span>
+        <div style="color:#8b99ae;font-size:.8em;margin-top:2px">
+          VCC Constitution drafting · Subfund appendix filing · 13O/13U legal opinion · MAS engagement
+        </div>
+      </div>
+
+      <div style="padding:10px;background:#0c0918;border-radius:8px;border-left:3px solid #8b5cf6">
+        <span class="title" style="color:#a78bfa;font-size:.92em">Tax Advisor</span>
+        <div style="color:#8b99ae;font-size:.8em;margin-top:2px">
+          13O/13U application material · AUM compliance modelling · Annual tax filings
+        </div>
+      </div>
+
+      <div style="padding:10px;background:#0c0918;border-radius:8px;border-left:3px solid #8b5cf6">
+        <span class="title" style="color:#a78bfa;font-size:.92em">Auditor (Big 4)</span>
+        <div style="color:#8b99ae;font-size:.8em;margin-top:2px">
+          Annual independent audit · Valuation workpaper review · Reporting within 6 months post-FYE
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<hr class="section-break">
+
+<!-- Banks -->
+<h3 style="text-align:center;font-size:1.1em;color:#e8edf4;margin-bottom:16px">Candidate Banks · 候选银行</h3>
+<p style="text-align:center;color:#64748b;font-size:.82em;margin-bottom:14px">
+  Parallel engagement · Final selection as primary VCC Subfund banking partner
+</p>
+
+<div class="card-row" style="margin-bottom:20px">
+  <div class="card card-bank" style="flex:1">
+    <div class="title">SPD Bank Singapore</div>
+    <div class="desc">
+      Status: <span style="color:#fbbf24">In discussion today</span><br>
+      Point: 天翼 / Inez<br>
+      VCC experience · Account opening timeline · Bare SF policy
+    </div>
+  </div>
+  <div class="card card-bank" style="flex:1">
+    <div class="title">J.P. Morgan</div>
+    <div class="desc">
+      Status: <span style="color:#fbbf24">Engaged</span><br>
+      Point: Derry<br>
+      Account checklist · Documentation requirements · Timeline
+    </div>
+  </div>
+  <div class="card card-bank" style="flex:1">
+    <div class="title">DBS</div>
+    <div class="desc">
+      Status: <span style="color:#fbbf24">Engaged</span><br>
+      Point: Derry<br>
+      Account checklist · Documentation requirements · Timeline
+    </div>
+  </div>
+</div>
+
+<table class="bank-table">
+  <thead>
+    <tr><th>Comparison</th><th>SPD Singapore</th><th>J.P. Morgan</th><th>DBS</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>VCC Umbrella experience</strong></td><td style="color:#fbbf24">TBC</td><td style="color:#fbbf24">TBC</td><td style="color:#fbbf24">TBC</td></tr>
+    <tr><td><strong>SF-level segregated accounts</strong></td><td>TBC</td><td>TBC</td><td>TBC</td></tr>
+    <tr><td><strong>Bare SF (pre-first-close) account opening</strong></td><td>TBC</td><td>TBC</td><td>TBC</td></tr>
+    <tr><td><strong>Account opening timeline</strong></td><td>TBC</td><td>TBC</td><td>TBC</td></tr>
+    <tr><td><strong>Minimum balance requirement</strong></td><td>TBC</td><td>TBC</td><td>TBC</td></tr>
+    <tr><td><strong>Subsequent SF simplified process</strong></td><td>TBC</td><td>TBC</td><td>TBC</td></tr>
+    <tr><td><strong>Fee structure (opening + monthly)</strong></td><td>TBC</td><td>TBC</td><td>TBC</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-break">
+
+<!-- Bottom Summary Line -->
+<div class="card-row">
+  <div class="card card-regulator" style="flex:1;max-width:180px">
+    <div class="title">MAS</div><div class="desc">Regulator</div>
+  </div>
+  <div style="display:flex;align-items:center;color:#5a6980;font-size:.8em">Regulates ▼</div>
+  <div class="card card-manager" style="flex:1;max-width:180px">
+    <div class="title">Olive GP</div><div class="desc">Fund Manager</div>
+  </div>
+  <div style="display:flex;align-items:center;color:#5a6980;font-size:.8em">Manages ▼</div>
+  <div class="card card-fund" style="flex:1;max-width:180px">
+    <div class="title">VCC + SFs</div><div class="desc">Fund Vehicle</div>
+  </div>
+  <div style="display:flex;align-items:center;color:#5a6980;font-size:.8em">Delegates ▼</div>
+  <div class="card card-service" style="flex:1;max-width:180px">
+    <div class="title">Admin + Legal + Tax + Audit</div><div class="desc">Service Providers</div>
+  </div>
+  <div style="display:flex;align-items:center;color:#5a6980;font-size:.8em">Custodied ▼</div>
+  <div class="card card-bank" style="flex:1;max-width:180px">
+    <div class="title">Banks × 3</div><div class="desc">Custodian / Operating</div>
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:14px;font-size:.8em;color:#64748b">
+  LP Contribution → SF Bank Account → Portfolio Companies → Exit → Waterfall → LP Distribution
+</p>
+
+<hr class="section-break">
+
+<!-- Governance Summary -->
+<h3 style="text-align:center;font-size:1.05em;color:#e8edf4;margin-bottom:14px">Governance Framework · 治理框架</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;font-size:.82em">
+  <div style="padding:12px;background:#140a0a;border-radius:8px;border-left:3px solid #ef4444"><span style="color:#f87171;font-weight:700">1. MAS · Regulatory Oversight</span><br><span style="color:#8b99ae">Grants fund management licence · Approves VCC incorporation · Administers 13O/13U tax incentive</span></div>
+  <div style="padding:12px;background:#140e06;border-radius:8px;border-left:3px solid #f59e0b"><span style="color:#fbbf24;font-weight:700">2. Olive GP · Investment Manager</span><br><span style="color:#8b99ae">Portfolio construction · Asset allocation · Risk management · Fiduciary duty to LP</span></div>
+  <div style="padding:12px;background:#08101e;border-radius:8px;border-left:3px solid #3b82f6"><span style="color:#60a5fa;font-weight:700">3. VCC · Legal Segregation</span><br><span style="color:#8b99ae">s.29 VCCA statutory ring-fencing · Each SF: segregated assets, liabilities, and books</span></div>
+  <div style="padding:12px;background:#0c0918;border-radius:8px;border-left:3px solid #8b5cf6"><span style="color:#a78bfa;font-weight:700">4. Fund Admin · Outsourced Middle/Back Office</span><br><span style="color:#8b99ae">Fund accounting · Investor servicing · Regulatory reporting · Independent valuation</span></div>
+  <div style="padding:12px;background:#061314;border-radius:8px;border-left:3px solid #06b6d4"><span style="color:#22d3ee;font-weight:700">5. Custodian · Asset Safekeeping</span><br><span style="color:#8b99ae">Per-SF segregated custody accounts · Cash monitoring · Trade settlement</span></div>
+  <div style="padding:12px;background:#061208;border-radius:8px;border-left:3px solid #22c55e"><span style="color:#4ade80;font-weight:700">6. LP · Limited Partner</span><br><span style="color:#8b99ae">Liability limited to committed capital · No cross-SF recourse · Subscription Agreement governs</span></div>
+</div>
+
+</div>
+
+<footer>
+  Olive GP · Singapore VCC Umbrella Structure &nbsp;|&nbsp; May 2026<br>
+  <span style="font-size:.85em">Four workstreams in parallel: VCC Registration · Fund Admin RFP · Bank Account Opening · 13O/13U Application</span>
+</footer>
+
+</body>
+</html>
