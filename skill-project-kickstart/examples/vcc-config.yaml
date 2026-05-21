@@ -1,0 +1,138 @@
+# VCC 项目管理示例配置
+# 这是 /project-kickstart 生成诺亚新加坡 VCC 看板的配置
+
+project:
+  name: "诺亚新加坡 VCC 设立"
+  subtitle: "MAS 资管牌照申请中 · VCC 设立全面推进"
+  pm: "天翼"
+  start_date: "2026-05-18"
+
+team:
+  - name: "Kevin"
+    role: "COO · 合规与运营总负责"
+    duties: "银行关系、牌照相关、Fund Admin Sourcing"
+    avatar: "K"
+  - name: "Derry"
+    role: "运营支持 · 银行对接"
+    duties: "对接银行沟通、开户材料、KYC 推进"
+    avatar: "D"
+  - name: "天翼"
+    role: "PM · 项目统筹"
+    duties: "各方协调、进度追踪"
+    avatar: "天"
+  - name: "Inez"
+    role: "PM 支持"
+    duties: "配合天翼推进项目管理"
+    avatar: "I"
+  - name: "Yihao"
+    role: "投资负责人"
+    duties: "投资策略、VCC 设立后的产品使用"
+    avatar: "Y"
+  - name: "Lucas / Ian"
+    role: "外部法律顾问"
+    duties: "VCC 文件起草、注册、税收激励申请"
+    avatar: "L"
+
+priorities:
+  - "银行开户"
+  - "Fund Admin 选型"
+  - "结构设计"
+  - "文件起草"
+  - "服务商选型"
+  - "牌照触发后"
+
+tasks:
+  - { who: "Kevin", task: "与 JPM / DBS 洽谈确定主合作行", status: wip, ddl: "本周", priority: red }
+  - { who: "Kevin", task: "Fund Admin Sourcing——筛选候选名单", status: todo, ddl: "", priority: yellow }
+  - { who: "Kevin", task: "与 Lucas 确定 VCC 结构方案", status: todo, ddl: "", priority: green }
+  - { who: "Derry", task: "对接 JPM 和 DBS，获取 SF 开户清单及条件", status: wip, ddl: "本周", priority: red }
+  - { who: "天翼 + Inez", task: "与浦发新加坡沟通 VCC 架构和 SF 条件", status: wip, ddl: "今天", priority: red }
+  - { who: "天翼 + Inez", task: "整理开立银行账户整体框架", status: todo, ddl: "本周", priority: red }
+  - { who: "Yihao", task: "明确投资策略与产品方向", status: todo, ddl: "", priority: yellow }
+  - { who: "Lucas / Ian", task: "待回复：新 SF 费用 + VCC 成本分摊", status: todo, ddl: "", priority: green }
+
+phases:
+  - id: P0
+    name: "项目启动"
+    steps:
+      - { status: done, name: "确定项目团队与分工", owner: "—" }
+      - { status: done, name: "拉建协同沟通群", owner: "Kevin" }
+      - { status: todo, name: "顾问发送报价+参考文件", owner: "Lucas" }
+  - id: P1
+    name: "结构设计"
+    steps:
+      - { status: todo, name: "VCC 数量与策略划分", owner: "Kevin + Lucas" }
+      - { status: todo, name: "子基金规划", owner: "Kevin + Lucas" }
+      - { status: todo, name: "13O vs 13U 税收方案", owner: "Kevin + Lucas" }
+      - { status: todo, name: "单一投资者应对方案", owner: "Lucas" }
+      - { status: todo, name: "注册地址/公司秘书", owner: "天翼" }
+  - id: P2
+    name: "文件起草"
+    steps:
+      - { status: todo, name: "主 PPM 起草", owner: "Lucas 团队" }
+      - { status: todo, name: "子基金补充文件", owner: "Lucas 团队" }
+      - { status: todo, name: "VCC 章程", owner: "Lucas 团队" }
+      - { status: todo, name: "13O/13U 申请材料", owner: "Lucas + Kevin" }
+      - { status: todo, name: "法律文件内部审核", owner: "Kevin" }
+  - id: P3
+    name: "牌照+注册"
+    steps:
+      - { status: waiting, name: "MAS 资管牌照获批", owner: "MAS" }
+      - { status: todo, name: "ACRA 提交 VCC 注册", owner: "Lucas + 天翼" }
+      - { status: todo, name: "提交 13O/13U 申请", owner: "Lucas + Kevin" }
+      - { status: todo, name: "取得 VCC UEN 号", owner: "Lucas" }
+  - id: P4
+    name: "银行开户"
+    steps:
+      - { status: wip, name: "托管账户 · 三行洽谈中", owner: "Kevin + Derry + 天翼" }
+      - { status: wip, name: "获取 SF 开户清单及条件", owner: "Derry" }
+      - { status: todo, name: "运营/管理账户", owner: "Kevin + Derry" }
+      - { status: todo, name: "子基金账户", owner: "Kevin + Derry" }
+      - { status: todo, name: "资本催缴账户", owner: "Kevin + Derry" }
+  - id: P5
+    name: "服务商"
+    steps:
+      - { status: wip, name: "Fund Admin RFP", owner: "Kevin + 天翼" }
+      - { status: todo, name: "审计师(四大)", owner: "天翼 + Inez" }
+      - { status: todo, name: "税务顾问", owner: "天翼 + Inez" }
+      - { status: todo, name: "公司秘书", owner: "天翼 + Inez" }
+      - { status: todo, name: "托管人签约", owner: "Kevin" }
+  - id: P6
+    name: "运营上线"
+    steps:
+      - { status: todo, name: "首个子基金上线", owner: "Yihao + 全体" }
+      - { status: todo, name: "首个投资人 onboarding", owner: "Yihao + Kevin" }
+      - { status: todo, name: "后续子基金复制", owner: "Yihao + Lucas" }
+      - { status: todo, name: "持续合规运转", owner: "Kevin + 天翼" }
+
+decisions:
+  - "设立 2 个 VCC：开放式 + 封闭式，不混搭"
+  - "单一 VCC 子基金上限 10-15 个"
+  - "银行账户设给 Subfund 层面，非 VCC 层面"
+  - "牌照下发当日提交 13O/13U 申请"
+  - "三行比选（JPM + DBS + 浦发）确定主托管行"
+  - "Fund Admin VCC 注册前 2-3 月启动 RFP"
+  - "单一投资者须做实质性投资分析留档"
+
+progress_sections:
+  - title: "银行开户"
+    headers: ["银行", "角色", "对接人", "状态"]
+    rows:
+      - ["JPM", "主托管候选", "Derry", "洽谈中—获取 SF 清单"]
+      - ["DBS", "托管备选/运营候选", "Derry", "洽谈中—获取 SF 清单"]
+      - ["浦发新加坡", "托管/运营候选", "天翼+Inez", "今天沟通 VCC 架构"]
+  - title: "外部顾问 ↔ 内部团队"
+    headers: ["事项", "状态", "下一步"]
+    rows:
+      - ["Lucas 待回复：费用+分摊", "邮件已发，等回复", "收到后同步 Kevin"]
+      - ["律师报价 + 参考文章", "待 Lucas 发送", "收到后评审启动"]
+      - ["VCC 主 PPM 起草", "待报价确认", "Lucas 执笔 Kevin 审核"]
+  - title: "Fund Admin 选型"
+    headers: ["事项", "状态"]
+    rows:
+      - ["Kevin 筛选候选名单", "进行中"]
+      - ["RFP 流程", "VCC 注册前 2-3 月启动"]
+
+github:
+  username: "AndyYi-claude"
+  repo: "vcc-project"

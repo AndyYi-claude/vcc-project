@@ -1,0 +1,115 @@
+# ============================================================
+# 项目管理看板配置模板 · project-kickstart
+# 复制此文件 → 填信息 → /project-kickstart --config 你的文件
+# ============================================================
+
+project:
+  name: "我的项目"           # 项目名称
+  subtitle: "一句话描述"      # 副标题
+  pm: "PM 名字"              # 项目经理
+  start_date: "2026-05-20"  # 开始日期
+
+# --- 团队 ---
+team:
+  - name: "张三"
+    role: "COO"
+    duties: "总负责"
+    avatar: "张"             # 1-2字，用于头像圆圈
+  - name: "李四"
+    role: "运营"
+    duties: "日常执行"
+    avatar: "李"
+
+# --- 优先级排序（仪表盘顶部展示）---
+priorities:
+  - "最紧急"
+  - "重要并行"
+  - "常规推进"
+  - "后置处理"
+  - "等待触发"
+
+# --- 任务分配 ---
+tasks:
+  - who: "张三"
+    task: "任务描述"
+    status: todo           # todo / wip / done
+    ddl: "本周"
+    priority: red          # red / yellow / green / blue / gray
+
+# --- 项目阶段（6 个阶段）---
+phases:
+  - id: P0
+    name: "项目启动"
+    steps:
+      - { status: done, name: "确定团队与分工", owner: "张三" }
+      - { status: done, name: "拉建沟通群", owner: "李四" }
+      - { status: todo, name: "启动会议", owner: "张三" }
+  - id: P1
+    name: "第一阶段"
+    steps:
+      - { status: todo, name: "步骤1", owner: "" }
+      - { status: todo, name: "步骤2", owner: "" }
+      - { status: todo, name: "步骤3", owner: "" }
+      - { status: todo, name: "步骤4", owner: "" }
+      - { status: todo, name: "步骤5", owner: "" }
+  - id: P2
+    name: "第二阶段"
+    steps:
+      - { status: todo, name: "步骤1", owner: "" }
+      - { status: todo, name: "步骤2", owner: "" }
+      - { status: todo, name: "步骤3", owner: "" }
+      - { status: todo, name: "步骤4", owner: "" }
+      - { status: todo, name: "步骤5", owner: "" }
+  - id: P3
+    name: "第三阶段"
+    steps:
+      - { status: todo, name: "步骤1", owner: "" }
+      - { status: todo, name: "步骤2", owner: "" }
+      - { status: todo, name: "步骤3", owner: "" }
+      - { status: todo, name: "步骤4", owner: "" }
+  - id: P4
+    name: "第四阶段"
+    steps:
+      - { status: todo, name: "步骤1", owner: "" }
+      - { status: todo, name: "步骤2", owner: "" }
+      - { status: todo, name: "步骤3", owner: "" }
+      - { status: todo, name: "步骤4", owner: "" }
+      - { status: todo, name: "步骤5", owner: "" }
+  - id: P5
+    name: "第五阶段"
+    steps:
+      - { status: todo, name: "步骤1", owner: "" }
+      - { status: todo, name: "步骤2", owner: "" }
+      - { status: todo, name: "步骤3", owner: "" }
+      - { status: todo, name: "步骤4", owner: "" }
+      - { status: todo, name: "步骤5", owner: "" }
+  - id: P6
+    name: "运营上线"
+    steps:
+      - { status: todo, name: "步骤1", owner: "" }
+      - { status: todo, name: "步骤2", owner: "" }
+      - { status: todo, name: "步骤3", owner: "" }
+      - { status: todo, name: "步骤4", owner: "" }
+
+# --- 关键决策 ---
+decisions:
+  - "决策 1"
+  - "决策 2"
+
+# --- 进展总览（右栏卡片，多个分组）---
+progress_sections:
+  - title: "模块 A 进展"
+    headers: ["事项", "状态", "下一步"]
+    rows:
+      - ["事项1", "状态", "下一步"]
+      - ["事项2", "状态", "下一步"]
+  - title: "模块 B 进展"
+    headers: ["事项", "状态"]
+    rows:
+      - ["事项1", "状态"]
+      - ["事项2", "状态"]
+
+# --- GitHub 信息 ---
+github:
+  username: "your-username"  # GitHub 用户名
+  repo: "your-repo-name"     # 仓库名
