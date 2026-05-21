@@ -109,7 +109,8 @@ progress_sections:
       - ["事项1", "状态"]
       - ["事项2", "状态"]
 
-# --- GitHub 信息 ---
-github:
-  username: "your-username"  # GitHub 用户名
-  repo: "your-repo-name"     # 仓库名
+# --- 部署方式（三选一）---
+deployment:
+  mode: gitee               # gitee / github / local
+  username: "your-username" # Gitee 或 GitHub 用户名
+  repo: "your-repo-name"    # 仓库名（local 模式不需要）
