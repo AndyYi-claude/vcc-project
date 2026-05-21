@@ -10,13 +10,27 @@
     --text: #1e293b; --dim: #94a3b8; --accent: #3b82f6;
     --accent-bg: #eff6ff; --green: #16a34a; --green-bg: #f0fdf4;
     --amber: #d97706; --amber-bg: #fffbeb; --red: #dc2626; --red-bg: #fef2f2;
-    --purple: #7c3aed; --purple-bg: #f5f3ff;
     --radius: 12px; --shadow: 0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
     --shadow-md: 0 4px 6px rgba(0,0,0,.04),0 2px 4px rgba(0,0,0,.04);
   }
   * { margin:0;padding:0;box-sizing:border-box; }
   body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:linear-gradient(180deg,#f0f4ff 0%,#f4f6f9 100%); color:var(--text); line-height:1.6; min-height:100vh; }
   .container { max-width:1060px; margin:0 auto; padding:40px 20px; }
+
+  /* Tab Bar */
+  .tab-bar { display:flex; gap:0; margin-bottom:24px; }
+  .tab-btn {
+    padding:10px 24px; font-size:14px; font-weight:600; cursor:pointer;
+    border:1px solid var(--border); background:var(--card); color:var(--dim);
+    transition:all .15s;
+  }
+  .tab-btn:first-child { border-radius:8px 0 0 8px; }
+  .tab-btn:last-child { border-radius:0 8px 8px 0; }
+  .tab-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .tab-btn:hover:not(.active) { background:var(--bg); }
+
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
 
   .header { margin-bottom:24px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; }
   .header h1 { font-size:26px; font-weight:700; letter-spacing:-.5px; background:linear-gradient(135deg,#1e40af,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -102,36 +116,8 @@
   .footer { text-align:center; padding:24px; font-size:12px; color:var(--dim); }
   .footer a { color:var(--accent); text-decoration:none; margin:0 6px; }
 
-  /* Architecture overlay */
-  .arch-banner {
-    display:flex; align-items:center; gap:10px;
-    background:linear-gradient(135deg,#0a1020,#111a2b); border:1px solid #1d2d44;
-    border-radius:10px; padding:12px 18px; margin-bottom:24px;
-    cursor:pointer; transition:border-color .2s; box-shadow:var(--shadow);
-  }
-  .arch-banner:hover { border-color:var(--accent); }
-  .arch-banner .arch-icon { font-size:20px; }
-  .arch-banner .arch-text { flex:1; font-size:13px; font-weight:600; }
-  .arch-banner .arch-hint { font-size:11px; color:var(--dim); }
-
-  .overlay {
-    position:fixed; top:0; left:0; width:100%; height:100%;
-    background:rgba(0,0,0,.85); z-index:9999;
-    display:none; flex-direction:column;
-  }
-  .overlay.show { display:flex; }
-  .overlay .ov-header {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:12px 20px; background:#0a1020; border-bottom:1px solid #152035;
-  }
-  .overlay .ov-header span { color:#94a3b8; font-size:14px; font-weight:600; }
-  .overlay .ov-close {
-    background:none; border:1px solid #334155; color:#94a3b8;
-    font-size:18px; cursor:pointer; padding:4px 12px; border-radius:6px;
-    transition:all .15s;
-  }
-  .overlay .ov-close:hover { background:#1e293b; color:#fff; }
-  .overlay iframe { flex:1; width:100%; border:none; }
+  /* Arch iframe panel */
+  #panel-arch iframe { width:100%; height:90vh; border:1px solid var(--border); border-radius:var(--radius); }
 
   @media (max-width:750px) {
     .grid { grid-template-columns:1fr; }
@@ -143,227 +129,175 @@
 <body>
 <div class="container">
 
-  <div class="header">
-    <div>
-      <h1>诺亚新加坡 VCC 设立</h1>
-      <div class="sub">MAS 资管牌照申请中 · PM：天翼 · 更新：2026-05-20</div>
-    </div>
+  <!-- Tab Switcher -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('dashboard')">项目看板</button>
+    <button class="tab-btn" onclick="switchTab('arch')">VCC 架构图</button>
   </div>
 
-  <!-- Architecture Banner -->
-  <div class="arch-banner" onclick="openArch()">
-    <div class="arch-icon">&#128451;</div>
-    <div class="arch-text">VCC Umbrella 架构图 · Olive GP</div>
-    <div class="arch-hint">点击查看 →</div>
-  </div>
+  <!-- ========== TAB 1: Dashboard ========== -->
+  <div class="tab-panel active" id="panel-dashboard">
 
-  <div class="ddl-row">
-    <div class="ddl-card urgent">
-      <div class="ddl-day">今天</div>
-      <div class="ddl-name">浦发沟通 VCC 架构和 SF 条件</div>
-      <div class="ddl-who">天翼 + Inez</div>
+    <div class="header">
+      <div>
+        <h1>诺亚新加坡 VCC 设立</h1>
+        <div class="sub">MAS 资管牌照申请中 · PM：天翼 · 更新：2026-05-20</div>
+      </div>
     </div>
-    <div class="ddl-card urgent">
-      <div class="ddl-day">本周</div>
-      <div class="ddl-name">JPM / DBS 获取 SF 开户清单</div>
-      <div class="ddl-who">Derry</div>
-    </div>
-    <div class="ddl-card urgent">
-      <div class="ddl-day">本周</div>
-      <div class="ddl-name">确定主合作行</div>
-      <div class="ddl-who">Kevin</div>
-    </div>
-  </div>
 
-  <div class="grid">
-    <!-- LEFT: TODO Panel -->
-    <div class="card">
-      <h2>当前待办</h2>
+    <div class="ddl-row">
+      <div class="ddl-card urgent"><div class="ddl-day">今天</div><div class="ddl-name">浦发沟通 VCC 架构和 SF 条件</div><div class="ddl-who">天翼 + Inez</div></div>
+      <div class="ddl-card urgent"><div class="ddl-day">本周</div><div class="ddl-name">JPM / DBS 获取 SF 开户清单</div><div class="ddl-who">Derry</div></div>
+      <div class="ddl-card urgent"><div class="ddl-day">本周</div><div class="ddl-name">确定主合作行</div><div class="ddl-who">Kevin</div></div>
+    </div>
 
-      <div class="person">
-        <div class="person-header"><span class="avatar av-K">K</span> Kevin（COO）</div>
-        <table class="task-table">
-          <tr data-id="k1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">与 JPM / DBS 洽谈确定主合作行</td><td class="col-ddl">本周</td></tr>
-          <tr data-id="k2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">Fund Admin Sourcing——筛选候选名单</td><td class="col-ddl"></td></tr>
-          <tr data-id="k3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">提供 FA 联系方式给天翼 & Inez</td><td class="col-ddl"></td></tr>
-          <tr data-id="k4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">比较各合作行方案</td><td class="col-ddl"></td></tr>
-          <tr data-id="k5"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">与 Lucas 确定 VCC 结构方案</td><td class="col-ddl"></td></tr>
-          <tr data-id="k6"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">确定 13O vs 13U 税收方案</td><td class="col-ddl"></td></tr>
+    <div class="grid">
+      <!-- LEFT: TODO -->
+      <div class="card">
+        <h2>当前待办</h2>
+
+        <div class="person">
+          <div class="person-header"><span class="avatar av-K">K</span> Kevin（COO）</div>
+          <table class="task-table">
+            <tr data-id="k1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">与 JPM / DBS 洽谈确定主合作行</td><td class="col-ddl">本周</td></tr>
+            <tr data-id="k2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">Fund Admin Sourcing——筛选候选名单</td><td class="col-ddl"></td></tr>
+            <tr data-id="k3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">提供 FA 联系方式给天翼 & Inez</td><td class="col-ddl"></td></tr>
+            <tr data-id="k4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">比较各合作行方案</td><td class="col-ddl"></td></tr>
+            <tr data-id="k5"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">与 Lucas 确定 VCC 结构方案</td><td class="col-ddl"></td></tr>
+            <tr data-id="k6"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">确定 13O vs 13U 税收方案</td><td class="col-ddl"></td></tr>
+          </table>
+        </div>
+
+        <div class="person">
+          <div class="person-header"><span class="avatar av-D">D</span> Derry（运营支持）</div>
+          <table class="task-table">
+            <tr data-id="d1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">对接 JPM 和 DBS，获取 SF 开户清单及条件</td><td class="col-ddl">本周</td></tr>
+          </table>
+        </div>
+
+        <div class="person">
+          <div class="person-header"><span class="avatar av-T">天</span> 天翼 + <span class="avatar av-I">I</span> Inez（PM）</div>
+          <table class="task-table">
+            <tr data-id="t0"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">与浦发新加坡沟通 VCC 架构和 SF 条件</td><td class="col-ddl">今天</td></tr>
+            <tr data-id="t1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开立银行账户整体框架</td><td class="col-ddl">本周</td></tr>
+            <tr data-id="t5"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待 Kevin contacts → 对接 Fund Admin</td><td class="col-ddl"></td></tr>
+            <tr data-id="t2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开户材料、协调内部签字</td><td class="col-ddl"></td></tr>
+            <tr data-id="t3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">协调对接律师初稿 → 预审 KYC</td><td class="col-ddl"></td></tr>
+            <tr data-id="t4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">服务商选型调研（后置）</td><td class="col-ddl"></td></tr>
+          </table>
+        </div>
+
+        <div class="person">
+          <div class="person-header"><span class="avatar av-Y">Y</span> Yihao（投资负责人）</div>
+          <table class="task-table">
+            <tr data-id="y1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">明确投资策略与产品方向</td><td class="col-ddl"></td></tr>
+            <tr data-id="y2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">明确投资/募资与银行账户间的需求</td><td class="col-ddl"></td></tr>
+          </table>
+        </div>
+
+        <div class="person">
+          <div class="person-header"><span class="avatar av-L">L</span> Lucas / Ian（外部律师）</div>
+          <table class="task-table">
+            <tr data-id="l0"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待回复：新 SF 费用 + VCC 成本分摊</td><td class="col-ddl"></td></tr>
+            <tr data-id="l1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">发送报价单 + VCC 参考文章</td><td class="col-ddl"></td></tr>
+            <tr data-id="l2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">启动 PPM 起草（6-8 周）</td><td class="col-ddl">报价后</td></tr>
+            <tr data-id="l3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">讨论并确定整体 VCC 设立框架</td><td class="col-ddl"></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- RIGHT: Progress -->
+      <div class="card" style="display:flex;flex-direction:column;gap:0;">
+        <h2>进展总览</h2>
+        <h3>银行开户</h3>
+        <table class="table-mini">
+          <tr><th>银行</th><th>角色</th><th>对接人</th><th>状态</th></tr>
+          <tr><td>JPM</td><td>主托管候选</td><td>Derry</td><td>洽谈中—获取 SF 清单</td></tr>
+          <tr><td>DBS</td><td>托管备选/运营候选</td><td>Derry</td><td>洽谈中—获取 SF 清单</td></tr>
+          <tr><td>浦发新加坡</td><td>托管/运营候选</td><td>天翼+Inez</td><td>今天沟通 VCC 架构</td></tr>
+          <tr><td>BOS</td><td>运营户候选</td><td>—</td><td>待接洽</td></tr>
+        </table>
+        <h3>外部顾问 ↔ 内部团队</h3>
+        <table class="table-mini">
+          <tr><th>事项</th><th>状态</th><th>下一步</th></tr>
+          <tr><td>Lucas 待回复：费用+分摊</td><td>邮件已发，等回复</td><td>收到后同步 Kevin</td></tr>
+          <tr><td>律师报价 + 参考文章</td><td>待 Lucas 发送</td><td>收到后评审启动</td></tr>
+          <tr><td>VCC 主 PPM 起草</td><td>待报价确认</td><td>Lucas 执笔 Kevin 审核</td></tr>
+          <tr><td>VCC 结构方案</td><td>已初步讨论</td><td>Kevin + Lucas 深入</td></tr>
+        </table>
+        <h3>Fund Admin 选型</h3>
+        <table class="table-mini">
+          <tr><th>事项</th><th>状态</th></tr>
+          <tr><td>Kevin 筛选候选名单</td><td>进行中</td></tr>
+          <tr><td>RFP 流程</td><td>VCC 注册前 2-3 月启动</td></tr>
+          <tr><td>签约</td><td>待 VCC 成立后以 VCC 名义签</td></tr>
         </table>
       </div>
+    </div>
 
-      <div class="person">
-        <div class="person-header"><span class="avatar av-D">D</span> Derry（运营支持）</div>
-        <table class="task-table">
-          <tr data-id="d1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">对接 JPM 和 DBS，获取 SF 开户清单及条件</td><td class="col-ddl">本周</td></tr>
-        </table>
-      </div>
-
-      <div class="person">
-        <div class="person-header"><span class="avatar av-T">天</span> 天翼 + <span class="avatar av-I">I</span> Inez（PM）</div>
-        <table class="task-table">
-          <tr data-id="t0"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">与浦发新加坡沟通 VCC 架构和 SF 条件</td><td class="col-ddl">今天</td></tr>
-          <tr data-id="t1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开立银行账户整体框架</td><td class="col-ddl">本周</td></tr>
-          <tr data-id="t5"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待 Kevin contacts→对接 Fund Admin</td><td class="col-ddl"></td></tr>
-          <tr data-id="t2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开户材料、协调内部签字</td><td class="col-ddl"></td></tr>
-          <tr data-id="t3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">协调对接律师初稿 → 预审 KYC</td><td class="col-ddl"></td></tr>
-          <tr data-id="t4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">服务商选型调研（后置）</td><td class="col-ddl"></td></tr>
-        </table>
-      </div>
-
-      <div class="person">
-        <div class="person-header"><span class="avatar av-Y">Y</span> Yihao（投资负责人）</div>
-        <table class="task-table">
-          <tr data-id="y1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">明确投资策略与产品方向</td><td class="col-ddl"></td></tr>
-          <tr data-id="y2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">明确投资/募资与银行账户间的需求</td><td class="col-ddl"></td></tr>
-        </table>
-      </div>
-
-      <div class="person">
-        <div class="person-header"><span class="avatar av-L">L</span> Lucas / Ian（外部律师）</div>
-        <table class="task-table">
-          <tr data-id="l0"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待回复：新 SF 费用 + VCC 成本分摊</td><td class="col-ddl"></td></tr>
-          <tr data-id="l1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">发送报价单 + VCC 参考文章</td><td class="col-ddl"></td></tr>
-          <tr data-id="l2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">启动 PPM 起草（6-8 周）</td><td class="col-ddl">报价后</td></tr>
-          <tr data-id="l3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">讨论并确定整体 VCC 设立框架</td><td class="col-ddl"></td></tr>
-        </table>
+    <!-- Process Flow -->
+    <div class="card" style="margin-bottom:20px">
+      <h2>全流程进度（31步 · 6阶段）</h2>
+      <div class="phase-flow">
+        <div class="phase-head"><span class="phase-num">P0</span><span class="phase-name">项目启动</span><div class="phase-bar"><div class="phase-fill" style="width:67%;background:var(--green)"></div></div><span class="phase-stat">2/3</span></div>
+        <div class="phase-head"><span class="phase-num">P1</span><span class="phase-name">结构设计</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/5</span></div>
+        <div class="phase-head"><span class="phase-num">P2</span><span class="phase-name">文件起草</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/5</span></div>
+        <div class="phase-head"><span class="phase-num">P3</span><span class="phase-name">牌照+注册</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/4</span></div>
+        <div class="phase-head"><span class="phase-num hot">P4</span><span class="phase-name" style="color:var(--red)">银行开户</span><div class="phase-bar"><div class="phase-fill" style="width:40%;background:var(--red)"></div></div><span class="phase-stat">2/5</span></div>
+        <div class="phase-head"><span class="phase-num">P5</span><span class="phase-name">服务商</span><div class="phase-bar"><div class="phase-fill" style="width:20%;background:var(--amber)"></div></div><span class="phase-stat">1/5</span></div>
+        <div class="phase-head"><span class="phase-num">P6</span><span class="phase-name">运营上线</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/4</span></div>
       </div>
     </div>
 
-    <!-- RIGHT: Progress Panel -->
-    <div class="card" style="display:flex;flex-direction:column;gap:0;">
-      <h2>进展总览</h2>
-
-      <h3>银行开户</h3>
-      <table class="table-mini">
-        <tr><th>银行</th><th>角色</th><th>对接人</th><th>状态</th></tr>
-        <tr><td>JPM</td><td>主托管候选</td><td>Derry</td><td>洽谈中—获取 SF 清单</td></tr>
-        <tr><td>DBS</td><td>托管备选/运营候选</td><td>Derry</td><td>洽谈中—获取 SF 清单</td></tr>
-        <tr><td>浦发新加坡</td><td>托管/运营候选</td><td>天翼+Inez</td><td>今天沟通 VCC 架构</td></tr>
-        <tr><td>BOS</td><td>运营户候选</td><td>—</td><td>待接洽</td></tr>
-      </table>
-
-      <h3>外部顾问 ↔ 内部团队</h3>
-      <table class="table-mini">
-        <tr><th>事项</th><th>状态</th><th>下一步</th></tr>
-        <tr><td>Lucas 待回复：费用+分摊</td><td>邮件已发，等回复</td><td>收到后同步 Kevin</td></tr>
-        <tr><td>律师报价 + 参考文章</td><td>待 Lucas 发送</td><td>收到后评审启动</td></tr>
-        <tr><td>VCC 主 PPM 起草</td><td>待报价确认</td><td>Lucas 执笔 Kevin 审核</td></tr>
-        <tr><td>VCC 结构方案</td><td>已初步讨论</td><td>Kevin + Lucas 深入</td></tr>
-      </table>
-
-      <h3>Fund Admin 选型</h3>
-      <table class="table-mini">
-        <tr><th>事项</th><th>状态</th></tr>
-        <tr><td>Kevin 筛选候选名单</td><td>进行中</td></tr>
-        <tr><td>RFP 流程</td><td>VCC 注册前 2-3 月启动</td></tr>
-        <tr><td>签约</td><td>待 VCC 成立后以 VCC 名义签</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- Process Flow -->
-  <div class="card" style="margin-bottom:20px">
-    <h2>全流程进度（31步 · 6阶段）</h2>
-    <div class="phase-flow">
-      <div class="phase-head">
-        <span class="phase-num">P0</span><span class="phase-name">项目启动</span>
-        <div class="phase-bar"><div class="phase-fill" style="width:67%;background:var(--green)"></div></div>
-        <span class="phase-stat">2/3</span>
-      </div>
-      <div class="phase-head">
-        <span class="phase-num">P1</span><span class="phase-name">结构设计</span>
-        <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
-        <span class="phase-stat">0/5</span>
-      </div>
-      <div class="phase-head">
-        <span class="phase-num">P2</span><span class="phase-name">文件起草</span>
-        <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
-        <span class="phase-stat">0/5</span>
-      </div>
-      <div class="phase-head">
-        <span class="phase-num">P3</span><span class="phase-name">牌照+注册</span>
-        <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
-        <span class="phase-stat">0/4</span>
-      </div>
-      <div class="phase-head">
-        <span class="phase-num hot">P4</span><span class="phase-name" style="color:var(--red)">银行开户</span>
-        <div class="phase-bar"><div class="phase-fill" style="width:40%;background:var(--red)"></div></div>
-        <span class="phase-stat">2/5</span>
-      </div>
-      <div class="phase-head">
-        <span class="phase-num">P5</span><span class="phase-name">服务商</span>
-        <div class="phase-bar"><div class="phase-fill" style="width:20%;background:var(--amber)"></div></div>
-        <span class="phase-stat">1/5</span>
-      </div>
-      <div class="phase-head">
-        <span class="phase-num">P6</span><span class="phase-name">运营上线</span>
-        <div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div>
-        <span class="phase-stat">0/4</span>
+    <!-- Timeline -->
+    <div class="card" style="margin-bottom:20px">
+      <h2>项目时间线</h2>
+      <div class="tl">
+        <div class="tl-day"><div class="tl-date">2026-05-20</div><div class="tl-event"><div class="tl-icon">💬</div>与浦发新加坡沟通 VCC 架构和 SF 条件（天翼+Inez）</div><div class="tl-event"><div class="tl-icon">📋</div>Kevin 启动 Fund Admin Sourcing</div></div>
+        <div class="tl-day"><div class="tl-date">2026-05-19</div><div class="tl-event"><div class="tl-icon">✅</div>拉建项目协同群 完成（Kevin）</div></div>
+        <div class="tl-day"><div class="tl-date">2026-05-18</div><div class="tl-event"><div class="tl-icon">🚀</div>召开 VCC 设立启动会议</div><div class="tl-event"><div class="tl-icon">📋</div>5 项关键决策（2 VCC / 10-15子基金 / 13O13U / 银行比选 / MAS分析留档）</div><div class="tl-event"><div class="tl-icon">👤</div>天翼担任 PM</div><div class="tl-event"><div class="tl-icon">📁</div>项目管理体系上线</div></div>
       </div>
     </div>
-  </div>
 
-  <!-- Timeline -->
-  <div class="card" style="margin-bottom:20px">
-    <h2>项目时间线</h2>
-    <div class="tl">
-      <div class="tl-day">
-        <div class="tl-date">2026-05-20</div>
-        <div class="tl-event"><div class="tl-icon">💬</div>与浦发新加坡沟通 VCC 架构和 SF 条件（天翼+Inez）</div>
-        <div class="tl-event"><div class="tl-icon">📋</div>Kevin 启动 Fund Admin Sourcing</div>
-      </div>
-      <div class="tl-day">
-        <div class="tl-date">2026-05-19</div>
-        <div class="tl-event"><div class="tl-icon">✅</div>拉建项目协同群 完成（Kevin）</div>
-      </div>
-      <div class="tl-day">
-        <div class="tl-date">2026-05-18</div>
-        <div class="tl-event"><div class="tl-icon">🚀</div>召开 VCC 设立启动会议</div>
-        <div class="tl-event"><div class="tl-icon">📋</div>5 项关键决策（2 VCC / 10-15子基金 / 13O13U / 银行比选 / MAS分析留档）</div>
-        <div class="tl-event"><div class="tl-icon">👤</div>天翼担任 PM</div>
-        <div class="tl-event"><div class="tl-icon">📁</div>项目管理体系上线</div>
-      </div>
+    <!-- Decisions -->
+    <div class="card" style="margin-bottom:16px">
+      <h2>关键决策</h2>
+      <ul class="dec-list">
+        <li><span class="dec-dot">&#8226;</span> 设立 2 个 VCC：开放式 + 封闭式，不混搭</li>
+        <li><span class="dec-dot">&#8226;</span> 单一 VCC 子基金上限 10-15 个</li>
+        <li><span class="dec-dot">&#8226;</span> 银行账户设给 Subfund 层面，非 VCC 层面</li>
+        <li><span class="dec-dot">&#8226;</span> 牌照下发当日提交 13O/13U 申请</li>
+        <li><span class="dec-dot">&#8226;</span> 三行比选（JPM + DBS + 浦发）确定主托管行</li>
+        <li><span class="dec-dot">&#8226;</span> Fund Admin VCC 注册前 2-3 月启动 RFP</li>
+        <li><span class="dec-dot">&#8226;</span> 单一投资者须做实质性投资分析留档</li>
+      </ul>
     </div>
+
+    <div class="reset-bar"><button onclick="resetAll()">重置所有勾选</button></div>
+  </div><!-- /panel-dashboard -->
+
+  <!-- ========== TAB 2: Architecture ========== -->
+  <div class="tab-panel" id="panel-arch">
+    <iframe src="vcc-architecture.html" title="VCC 架构图"></iframe>
   </div>
 
-  <!-- Decisions -->
-  <div class="card" style="margin-bottom:16px">
-    <h2>关键决策</h2>
-    <ul class="dec-list">
-      <li><span class="dec-dot">&#8226;</span> 设立 2 个 VCC：开放式 + 封闭式，不混搭</li>
-      <li><span class="dec-dot">&#8226;</span> 单一 VCC 子基金上限 10-15 个</li>
-      <li><span class="dec-dot">&#8226;</span> 银行账户设给 Subfund 层面，非 VCC 层面</li>
-      <li><span class="dec-dot">&#8226;</span> 牌照下发当日提交 13O/13U 申请</li>
-      <li><span class="dec-dot">&#8226;</span> 三行比选（JPM + DBS + 浦发）确定主托管行</li>
-      <li><span class="dec-dot">&#8226;</span> Fund Admin VCC 注册前 2-3 月启动 RFP</li>
-      <li><span class="dec-dot">&#8226;</span> 单一投资者须做实质性投资分析留档</li>
-    </ul>
-  </div>
-
-  <div class="reset-bar"><button onclick="resetAll()">重置所有勾选</button></div>
+  <!-- Footer & Toast -->
   <div class="toast" id="toast"></div>
-
   <div class="footer">
     新加坡同事：<a href="https://AndyYi-claude.github.io/vcc-project/dashboard.html" target="_blank">GitHub Pages</a> ·
     国内免翻：<a href="https://gitee.com/AndyYi98/vcc-project/blob/main/01-dashboard.md" target="_blank">Gitee 看板</a> ·
     <a href="https://gitee.com/AndyYi98/vcc-project/blob/main/02-tasks.md" target="_blank">Gitee 任务</a>
   </div>
 
-  <!-- Architecture Overlay -->
-  <div class="overlay" id="archOverlay">
-    <div class="ov-header">
-      <span>VCC Umbrella 架构图 · Olive GP</span>
-      <button class="ov-close" onclick="closeArch()">&times;</button>
-    </div>
-    <iframe src="vcc-architecture.html"></iframe>
-  </div>
-</div>
+</div><!-- /container -->
 
 <script>
-function openArch(){ document.getElementById('archOverlay').classList.add('show'); }
-function closeArch(){ document.getElementById('archOverlay').classList.remove('show'); }
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeArch(); });
+function switchTab(name){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.tab-btn[onclick*="'+name+'"]').classList.add('active');
+  document.getElementById('panel-'+name).classList.add('active');
+}
 
 document.querySelectorAll('[data-id]').forEach(tr=>{
   if(localStorage.getItem('vcc-'+tr.getAttribute('data-id'))==='1'){
