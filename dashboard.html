@@ -10,6 +10,7 @@
     --text: #1e293b; --dim: #94a3b8; --accent: #3b82f6;
     --accent-bg: #eff6ff; --green: #16a34a; --green-bg: #f0fdf4;
     --amber: #d97706; --amber-bg: #fffbeb; --red: #dc2626; --red-bg: #fef2f2;
+    --purple: #7c3aed; --purple-bg: #f5f3ff;
     --radius: 12px; --shadow: 0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
     --shadow-md: 0 4px 6px rgba(0,0,0,.04),0 2px 4px rgba(0,0,0,.04);
   }
@@ -17,18 +18,11 @@
   body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif; background:linear-gradient(180deg,#f0f4ff 0%,#f4f6f9 100%); color:var(--text); line-height:1.6; min-height:100vh; }
   .container { max-width:1060px; margin:0 auto; padding:40px 20px; }
 
-  /* Tab Bar */
   .tab-bar { display:flex; gap:0; margin-bottom:24px; }
-  .tab-btn {
-    padding:10px 24px; font-size:14px; font-weight:600; cursor:pointer;
-    border:1px solid var(--border); background:var(--card); color:var(--dim);
-    transition:all .15s;
-  }
+  .tab-btn { padding:10px 24px; font-size:14px; font-weight:600; cursor:pointer; border:1px solid var(--border); background:var(--card); color:var(--dim); transition:all .15s; }
   .tab-btn:first-child { border-radius:8px 0 0 8px; }
   .tab-btn:last-child { border-radius:0 8px 8px 0; }
   .tab-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
-  .tab-btn:hover:not(.active) { background:var(--bg); }
-
   .tab-panel { display:none; }
   .tab-panel.active { display:block; }
 
@@ -39,7 +33,7 @@
   .ddl-row { display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap; }
   .ddl-card { flex:1; min-width:160px; background:var(--card); border-radius:var(--radius); padding:14px 18px; box-shadow:var(--shadow); border-left:4px solid var(--border); }
   .ddl-card.urgent { border-left-color:var(--red); background:var(--red-bg); }
-  .ddl-card .ddl-day { font-size:24px; font-weight:700; }
+  .ddl-card .ddl-day { font-size:22px; font-weight:700; }
   .ddl-card.urgent .ddl-day { color:var(--red); }
   .ddl-card .ddl-name { font-size:13px; font-weight:600; margin:2px 0; }
   .ddl-card .ddl-who { font-size:11px; color:var(--dim); }
@@ -48,7 +42,7 @@
   .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); transition:box-shadow .2s; }
   .card:hover { box-shadow:var(--shadow-md); }
   .card h2 { font-size:16px; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
-  .card h3 { font-size:14px; font-weight:700; margin:16px 0 6px; color:var(--text); }
+  .card h3 { font-size:14px; font-weight:700; margin:14px 0 6px; color:var(--text); }
   .card h3:first-of-type { margin-top:0; }
 
   .person { margin-bottom:14px; }
@@ -68,87 +62,73 @@
   .task-table tr:hover td { background:var(--bg); }
   .task-table .col-chk { width:22px; }
   .task-table .col-status { width:30px; text-align:center; }
-  .task-table .col-name { min-width:100px; font-weight:500; }
-  .task-table .col-ddl { width:60px; text-align:right; font-size:11px; color:var(--dim); padding-top:8px; }
+  .task-table .col-name { min-width:90px; font-weight:500; }
+  .task-table .col-ddl { width:70px; text-align:right; font-size:11px; color:var(--dim); padding-top:8px; white-space:nowrap; }
   .task-table input[type=checkbox] { width:16px; height:16px; accent-color:var(--green); cursor:pointer; }
   tr.done td { opacity:.35; }
   tr.done .col-name { text-decoration:line-through; }
-
   .status-icon { font-weight:700; font-size:13px; }
   .s-todo { color:var(--dim); }
   .s-wip { color:var(--amber); }
   .s-done { color:var(--green); }
+  .s-hot { color:var(--red); }
 
   .table-mini { width:100%; font-size:12px; border-collapse:collapse; margin-top:6px; }
   .table-mini th { text-align:left; color:var(--dim); font-weight:600; padding:4px 8px; border-bottom:1px solid var(--border); font-size:11px; }
-  .table-mini td { padding:4px 8px; border-bottom:1px solid #f1f5f9; }
+  .table-mini td { padding:4px 8px; border-bottom:1px solid #f1f5f9; font-size:12px; vertical-align:top; }
 
-  .dec-list { list-style:none; }
-  .dec-list li { font-size:13px; padding:6px 0; border-bottom:1px solid #f1f5f9; display:flex; gap:8px; }
-  .dec-list li:last-child { border-bottom:none; }
-  .dec-dot { color:var(--accent); flex-shrink:0; }
-
-  .tl { position:relative; padding-left:32px; }
-  .tl::before { content:''; position:absolute; left:10px; top:4px; bottom:4px; width:2px; background:var(--border); }
-  .tl-day { margin-bottom:20px; position:relative; }
-  .tl-day:last-child { margin-bottom:0; }
-  .tl-day::before { content:''; position:absolute; left:-26px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid var(--card); box-shadow:0 0 0 2px var(--accent-bg); z-index:1; }
-  .tl-date { font-size:14px; font-weight:700; margin-bottom:6px; }
-  .tl-event { font-size:12px; padding:3px 0; display:flex; gap:8px; }
-  .tl-icon { width:20px; text-align:center; flex-shrink:0; }
-
-  .phase-flow { display:flex; flex-direction:column; gap:12px; }
-  .phase-head { display:flex; align-items:center; gap:10px; }
+  .phase-flow { display:flex; flex-direction:column; gap:10px; }
+  .phase-head { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
   .phase-num { font-size:11px; font-weight:700; color:#fff; background:var(--accent); border-radius:4px; padding:2px 8px; min-width:32px; text-align:center; }
   .phase-num.hot { background:var(--red); }
-  .phase-name { font-size:13px; font-weight:600; min-width:68px; }
+  .phase-name { font-size:13px; font-weight:600; min-width:70px; }
   .phase-bar { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
   .phase-fill { height:100%; background:var(--green); border-radius:3px; }
   .phase-stat { font-size:12px; font-weight:600; color:var(--dim); min-width:36px; text-align:right; }
+  .phase-items { font-size:12px; color:var(--dim); padding-left:42px; display:flex; flex-wrap:wrap; gap:2px 10px; }
+  .phase-items .pi { padding:1px 0; }
+  .phase-items .pi.s-done { color:var(--green); }
+  .phase-items .pi.s-wip { color:var(--amber); }
+
+  .tl { position:relative; padding-left:32px; }
+  .tl::before { content:''; position:absolute; left:10px; top:4px; bottom:4px; width:2px; background:var(--border); }
+  .tl-day { margin-bottom:16px; position:relative; }
+  .tl-day::before { content:''; position:absolute; left:-26px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid var(--card); box-shadow:0 0 0 2px var(--accent-bg); z-index:1; }
+  .tl-date { font-size:14px; font-weight:700; margin-bottom:4px; }
+  .tl-event { font-size:12px; padding:2px 0; display:flex; gap:8px; }
+  .tl-icon { width:20px; text-align:center; flex-shrink:0; }
 
   .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#1e293b; color:#fff; padding:12px 24px; border-radius:8px; font-size:13px; opacity:0; transition:opacity .3s; pointer-events:none; z-index:100; box-shadow:0 10px 25px rgba(0,0,0,.15); }
   .toast.show { opacity:1; }
-
   .reset-bar { text-align:center; margin-top:16px; }
-  .reset-bar button { background:none; border:1px solid var(--border); padding:6px 16px; border-radius:6px; font-size:12px; color:var(--dim); cursor:pointer; transition:all .15s; }
-  .reset-bar button:hover { border-color:var(--red); color:var(--red); }
-
+  .reset-bar button { background:none; border:1px solid var(--border); padding:6px 16px; border-radius:6px; font-size:12px; color:var(--dim); cursor:pointer; }
   .footer { text-align:center; padding:24px; font-size:12px; color:var(--dim); }
   .footer a { color:var(--accent); text-decoration:none; margin:0 6px; }
 
-  /* Arch iframe panel */
-  #panel-arch iframe { width:100%; height:90vh; border:1px solid var(--border); border-radius:var(--radius); }
-
-  @media (max-width:750px) {
-    .grid { grid-template-columns:1fr; }
-    .container { padding:20px 12px; }
-    .ddl-row { flex-direction:column; }
-  }
+  @media (max-width:750px) { .grid { grid-template-columns:1fr; } .container { padding:20px 12px; } .ddl-row { flex-direction:column; } }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- Tab Switcher -->
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('dashboard')">项目看板</button>
     <button class="tab-btn" onclick="switchTab('arch')">VCC 架构图</button>
   </div>
 
-  <!-- ========== TAB 1: Dashboard ========== -->
   <div class="tab-panel active" id="panel-dashboard">
 
     <div class="header">
       <div>
         <h1>诺亚新加坡 VCC 设立</h1>
-        <div class="sub">MAS 资管牌照申请中 · PM：天翼 · 更新：2026-05-20</div>
+        <div class="sub">MAS 资管牌照申请中 · PM：天翼 · 更新：2026-05-25</div>
       </div>
     </div>
 
     <div class="ddl-row">
-      <div class="ddl-card urgent"><div class="ddl-day">今天</div><div class="ddl-name">浦发沟通 VCC 架构和 SF 条件</div><div class="ddl-who">天翼 + Inez</div></div>
-      <div class="ddl-card urgent"><div class="ddl-day">本周</div><div class="ddl-name">JPM / DBS 获取 SF 开户清单</div><div class="ddl-who">Derry</div></div>
+      <div class="ddl-card urgent"><div class="ddl-day">6月4日</div><div class="ddl-name">MAS 股东信息披露</div><div class="ddl-who">Kevin</div></div>
       <div class="ddl-card urgent"><div class="ddl-day">本周</div><div class="ddl-name">确定主合作行</div><div class="ddl-who">Kevin</div></div>
+      <div class="ddl-card urgent"><div class="ddl-day">本周</div><div class="ddl-name">JPM / DBS 获取 SF 开户清单</div><div class="ddl-who">Derry</div></div>
     </div>
 
     <div class="grid">
@@ -159,31 +139,29 @@
         <div class="person">
           <div class="person-header"><span class="avatar av-K">K</span> Kevin（COO）</div>
           <table class="task-table">
-            <tr data-id="k1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">与 JPM / DBS 洽谈确定主合作行</td><td class="col-ddl">本周</td></tr>
-            <tr data-id="k2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">Fund Admin Sourcing——筛选候选名单</td><td class="col-ddl"></td></tr>
-            <tr data-id="k3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">提供 FA 联系方式给天翼 & Inez</td><td class="col-ddl"></td></tr>
+            <tr data-id="k7"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-hot">🔴</span></td><td class="col-name">MAS 股东信息披露 本周收集材料</td><td class="col-ddl">6月4日</td></tr>
+            <tr data-id="k1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">与 JPM / DBS 确定主合作行</td><td class="col-ddl">本周</td></tr>
+            <tr data-id="k2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">Fund Admin Sourcing</td><td class="col-ddl"></td></tr>
             <tr data-id="k4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">比较各合作行方案</td><td class="col-ddl"></td></tr>
             <tr data-id="k5"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">与 Lucas 确定 VCC 结构方案</td><td class="col-ddl"></td></tr>
-            <tr data-id="k6"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">确定 13O vs 13U 税收方案</td><td class="col-ddl"></td></tr>
+            <tr data-id="k6"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">确定 13O vs 13U</td><td class="col-ddl"></td></tr>
           </table>
         </div>
 
         <div class="person">
           <div class="person-header"><span class="avatar av-D">D</span> Derry（运营支持）</div>
           <table class="task-table">
-            <tr data-id="d1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">对接 JPM 和 DBS，获取 SF 开户清单及条件</td><td class="col-ddl">本周</td></tr>
+            <tr data-id="d1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">对接 JPM / DBS，获取 SF 开户清单</td><td class="col-ddl">本周</td></tr>
           </table>
         </div>
 
         <div class="person">
           <div class="person-header"><span class="avatar av-T">天</span> 天翼 + <span class="avatar av-I">I</span> Inez（PM）</div>
           <table class="task-table">
-            <tr data-id="t0"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">与浦发新加坡沟通 VCC 架构和 SF 条件</td><td class="col-ddl">今天</td></tr>
-            <tr data-id="t1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开立银行账户整体框架</td><td class="col-ddl">本周</td></tr>
-            <tr data-id="t5"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待 Kevin contacts → 对接 Fund Admin</td><td class="col-ddl"></td></tr>
+            <tr data-id="t1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理银行账户整体框架</td><td class="col-ddl">本周</td></tr>
+            <tr data-id="t6"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">提前与 FA 沟通——发牌照草案</td><td class="col-ddl">可启动</td></tr>
             <tr data-id="t2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开户材料、协调内部签字</td><td class="col-ddl"></td></tr>
             <tr data-id="t3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">协调对接律师初稿 → 预审 KYC</td><td class="col-ddl"></td></tr>
-            <tr data-id="t4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">服务商选型调研（后置）</td><td class="col-ddl"></td></tr>
           </table>
         </div>
 
@@ -191,61 +169,90 @@
           <div class="person-header"><span class="avatar av-Y">Y</span> Yihao（投资负责人）</div>
           <table class="task-table">
             <tr data-id="y1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">明确投资策略与产品方向</td><td class="col-ddl"></td></tr>
-            <tr data-id="y2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">明确投资/募资与银行账户间的需求</td><td class="col-ddl"></td></tr>
+            <tr data-id="y2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">明确投资/募资与银行账户需求</td><td class="col-ddl"></td></tr>
           </table>
         </div>
 
         <div class="person">
           <div class="person-header"><span class="avatar av-L">L</span> Lucas / Ian（外部律师）</div>
           <table class="task-table">
-            <tr data-id="l0"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待回复：新 SF 费用 + VCC 成本分摊</td><td class="col-ddl"></td></tr>
+            <tr data-id="l0"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待回复：新 SF 费用 + 成本分摊</td><td class="col-ddl"></td></tr>
             <tr data-id="l1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">发送报价单 + VCC 参考文章</td><td class="col-ddl"></td></tr>
             <tr data-id="l2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">启动 PPM 起草（6-8 周）</td><td class="col-ddl">报价后</td></tr>
-            <tr data-id="l3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">讨论并确定整体 VCC 设立框架</td><td class="col-ddl"></td></tr>
           </table>
         </div>
       </div>
 
       <!-- RIGHT: Progress -->
-      <div class="card" style="display:flex;flex-direction:column;gap:0;">
+      <div class="card">
         <h2>进展总览</h2>
+
+        <h3>5/25 律所沟通要点</h3>
+        <table class="table-mini">
+          <tr><td>股东信息披露</td><td style="color:var(--red)">MAS 6/4 截止，本周收集</td></tr>
+          <tr><td>新 SF 费用</td><td>S$1万-1.2万（模式不变）/ S$2万+（大变）</td></tr>
+          <tr><td>成本分摊</td><td>VCC 设立成本 5 年摊销，可拆分入各 SF</td></tr>
+          <tr><td>FA 对接时机</td><td>未拿 IPA 也可提前沟通，先发草案</td></tr>
+          <tr><td>税收优惠费用</td><td>S$1万-1.5万（常规）/ S$2万（复杂）</td></tr>
+          <tr><td>银行选择</td><td>托管户+基金户同行更高效；JPM/DBS 实操经验 > 中资行</td></tr>
+        </table>
+
         <h3>银行开户</h3>
         <table class="table-mini">
-          <tr><th>银行</th><th>角色</th><th>对接人</th><th>状态</th></tr>
-          <tr><td>JPM</td><td>主托管候选</td><td>Derry</td><td>洽谈中—获取 SF 清单</td></tr>
-          <tr><td>DBS</td><td>托管备选/运营候选</td><td>Derry</td><td>洽谈中—获取 SF 清单</td></tr>
-          <tr><td>浦发新加坡</td><td>托管/运营候选</td><td>天翼+Inez</td><td>今天沟通 VCC 架构</td></tr>
-          <tr><td>BOS</td><td>运营户候选</td><td>—</td><td>待接洽</td></tr>
+          <tr><th>银行</th><th>角色</th><th>状态</th></tr>
+          <tr><td>JPM</td><td>主托管候选</td><td>洽谈中</td></tr>
+          <tr><td>DBS</td><td>托管备选/运营候选</td><td>洽谈中</td></tr>
+          <tr><td>浦发新加坡</td><td>托管/运营候选</td><td>已沟通</td></tr>
         </table>
-        <h3>外部顾问 ↔ 内部团队</h3>
-        <table class="table-mini">
-          <tr><th>事项</th><th>状态</th><th>下一步</th></tr>
-          <tr><td>Lucas 待回复：费用+分摊</td><td>邮件已发，等回复</td><td>收到后同步 Kevin</td></tr>
-          <tr><td>律师报价 + 参考文章</td><td>待 Lucas 发送</td><td>收到后评审启动</td></tr>
-          <tr><td>VCC 主 PPM 起草</td><td>待报价确认</td><td>Lucas 执笔 Kevin 审核</td></tr>
-          <tr><td>VCC 结构方案</td><td>已初步讨论</td><td>Kevin + Lucas 深入</td></tr>
-        </table>
-        <h3>Fund Admin 选型</h3>
+
+        <h3>Fund Admin</h3>
         <table class="table-mini">
           <tr><th>事项</th><th>状态</th></tr>
           <tr><td>Kevin 筛选候选名单</td><td>进行中</td></tr>
-          <tr><td>RFP 流程</td><td>VCC 注册前 2-3 月启动</td></tr>
-          <tr><td>签约</td><td>待 VCC 成立后以 VCC 名义签</td></tr>
+          <tr><td>提前与 FA 沟通（草案）</td><td>可启动</td></tr>
         </table>
       </div>
     </div>
 
     <!-- Process Flow -->
     <div class="card" style="margin-bottom:20px">
-      <h2>全流程进度（31步 · 6阶段）</h2>
+      <h2>全流程进度明细</h2>
       <div class="phase-flow">
-        <div class="phase-head"><span class="phase-num">P0</span><span class="phase-name">项目启动</span><div class="phase-bar"><div class="phase-fill" style="width:67%;background:var(--green)"></div></div><span class="phase-stat">2/3</span></div>
-        <div class="phase-head"><span class="phase-num">P1</span><span class="phase-name">结构设计</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/5</span></div>
-        <div class="phase-head"><span class="phase-num">P2</span><span class="phase-name">文件起草</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/5</span></div>
-        <div class="phase-head"><span class="phase-num">P3</span><span class="phase-name">牌照+注册</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/4</span></div>
-        <div class="phase-head"><span class="phase-num hot">P4</span><span class="phase-name" style="color:var(--red)">银行开户</span><div class="phase-bar"><div class="phase-fill" style="width:40%;background:var(--red)"></div></div><span class="phase-stat">2/5</span></div>
-        <div class="phase-head"><span class="phase-num">P5</span><span class="phase-name">服务商</span><div class="phase-bar"><div class="phase-fill" style="width:20%;background:var(--amber)"></div></div><span class="phase-stat">1/5</span></div>
-        <div class="phase-head"><span class="phase-num">P6</span><span class="phase-name">运营上线</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/4</span></div>
+
+        <div>
+          <div class="phase-head"><span class="phase-num">P0</span><span class="phase-name">项目启动</span><div class="phase-bar"><div class="phase-fill" style="width:67%;background:var(--green)"></div></div><span class="phase-stat">2/3</span></div>
+          <div class="phase-items"><span class="pi s-done">✓ 确定团队</span> <span class="pi s-done">✓ 拉建协同群</span> <span class="pi">○ 顾问报价+参考文件</span></div>
+        </div>
+
+        <div>
+          <div class="phase-head"><span class="phase-num">P1</span><span class="phase-name">结构设计</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/5</span></div>
+          <div class="phase-items"><span class="pi">○ VCC数量与策略划分</span> <span class="pi">○ 子基金规划</span> <span class="pi">○ 13O vs 13U 方案</span> <span class="pi">○ 单一投资者应对</span> <span class="pi">○ 注册地址/公司秘书</span></div>
+        </div>
+
+        <div>
+          <div class="phase-head"><span class="phase-num">P2</span><span class="phase-name">文件起草</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/5</span></div>
+          <div class="phase-items"><span class="pi">○ 主PPM起草</span> <span class="pi">○ 子基金补充文件</span> <span class="pi">○ VCC章程</span> <span class="pi">○ 13O/13U材料准备</span> <span class="pi">○ 法律文件内部审核</span></div>
+        </div>
+
+        <div>
+          <div class="phase-head"><span class="phase-num">P3</span><span class="phase-name">牌照+注册</span><div class="phase-bar"><div class="phase-fill" style="width:25%;background:var(--amber)"></div></div><span class="phase-stat">1/4</span></div>
+          <div class="phase-items"><span class="pi" style="color:var(--amber)">⏳ MAS IPA 获批</span> <span class="pi" style="color:var(--red)">🔴 股东披露 (6/4)</span> <span class="pi">○ VCC注册</span> <span class="pi">○ 提交13O/13U</span></div>
+        </div>
+
+        <div>
+          <div class="phase-head"><span class="phase-num hot">P4</span><span class="phase-name" style="color:var(--red)">银行开户</span><div class="phase-bar"><div class="phase-fill" style="width:33%;background:var(--red)"></div></div><span class="phase-stat">2/6</span></div>
+          <div class="phase-items"><span class="pi s-wip">◐ 获取JPM/DBS SF清单</span> <span class="pi s-wip">◐ 浦发已沟通</span> <span class="pi">○ 确定主托管行</span> <span class="pi">○ 开立托管+基金户</span> <span class="pi">○ 运营户</span> <span class="pi">○ 催缴户</span></div>
+        </div>
+
+        <div>
+          <div class="phase-head"><span class="phase-num">P5</span><span class="phase-name">服务商</span><div class="phase-bar"><div class="phase-fill" style="width:16%;background:var(--amber)"></div></div><span class="phase-stat">1/6</span></div>
+          <div class="phase-items"><span class="pi s-wip">◐ FA Sourcing</span> <span class="pi">○ 提前与FA沟通草案</span> <span class="pi">○ FA RFP</span> <span class="pi" style="color:var(--dim)">🔵 审计</span> <span class="pi" style="color:var(--dim)">🔵 税务</span> <span class="pi" style="color:var(--dim)">🔵 公司秘书</span></div>
+        </div>
+
+        <div>
+          <div class="phase-head"><span class="phase-num">P6</span><span class="phase-name">运营上线</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/4</span></div>
+          <div class="phase-items" style="color:var(--dim)"><span class="pi">🔵 首个子基金上线</span> <span class="pi">🔵 投资人onboarding</span> <span class="pi">🔵 后续SF复制</span> <span class="pi">🔵 持续合规</span></div>
+        </div>
       </div>
     </div>
 
@@ -253,43 +260,27 @@
     <div class="card" style="margin-bottom:20px">
       <h2>项目时间线</h2>
       <div class="tl">
-        <div class="tl-day"><div class="tl-date">2026-05-20</div><div class="tl-event"><div class="tl-icon">💬</div>与浦发新加坡沟通 VCC 架构和 SF 条件（天翼+Inez）</div><div class="tl-event"><div class="tl-icon">📋</div>Kevin 启动 Fund Admin Sourcing</div></div>
-        <div class="tl-day"><div class="tl-date">2026-05-19</div><div class="tl-event"><div class="tl-icon">✅</div>拉建项目协同群 完成（Kevin）</div></div>
-        <div class="tl-day"><div class="tl-date">2026-05-18</div><div class="tl-event"><div class="tl-icon">🚀</div>召开 VCC 设立启动会议</div><div class="tl-event"><div class="tl-icon">📋</div>5 项关键决策（2 VCC / 10-15子基金 / 13O13U / 银行比选 / MAS分析留档）</div><div class="tl-event"><div class="tl-icon">👤</div>天翼担任 PM</div><div class="tl-event"><div class="tl-icon">📁</div>项目管理体系上线</div></div>
+        <div class="tl-day"><div class="tl-date">2026-05-25</div><div class="tl-event"><div class="tl-icon">💬</div>与 Ian 沟通：股东披露(6/4)、SF费用、成本分摊、FA提前对接、税优收费、银行建议</div></div>
+        <div class="tl-day"><div class="tl-date">2026-05-20</div><div class="tl-event"><div class="tl-icon">💬</div>与浦发沟通 VCC 架构</div><div class="tl-event"><div class="tl-icon">📋</div>Kevin 启动 FA Sourcing</div></div>
+        <div class="tl-day"><div class="tl-date">2026-05-19</div><div class="tl-event"><div class="tl-icon">✅</div>拉建协同群（Kevin）</div></div>
+        <div class="tl-day"><div class="tl-date">2026-05-18</div><div class="tl-event"><div class="tl-icon">🚀</div>启动会议 · 天翼任 PM</div></div>
       </div>
     </div>
 
-    <!-- Decisions -->
-    <div class="card" style="margin-bottom:16px">
-      <h2>关键决策</h2>
-      <ul class="dec-list">
-        <li><span class="dec-dot">&#8226;</span> 设立 2 个 VCC：开放式 + 封闭式，不混搭</li>
-        <li><span class="dec-dot">&#8226;</span> 单一 VCC 子基金上限 10-15 个</li>
-        <li><span class="dec-dot">&#8226;</span> 银行账户设给 Subfund 层面，非 VCC 层面</li>
-        <li><span class="dec-dot">&#8226;</span> 牌照下发当日提交 13O/13U 申请</li>
-        <li><span class="dec-dot">&#8226;</span> 三行比选（JPM + DBS + 浦发）确定主托管行</li>
-        <li><span class="dec-dot">&#8226;</span> Fund Admin VCC 注册前 2-3 月启动 RFP</li>
-        <li><span class="dec-dot">&#8226;</span> 单一投资者须做实质性投资分析留档</li>
-      </ul>
-    </div>
-
     <div class="reset-bar"><button onclick="resetAll()">重置所有勾选</button></div>
-  </div><!-- /panel-dashboard -->
-
-  <!-- ========== TAB 2: Architecture ========== -->
-  <div class="tab-panel" id="panel-arch">
-    <iframe src="vcc-architecture.html" title="VCC 架构图"></iframe>
   </div>
 
-  <!-- Footer & Toast -->
+  <div class="tab-panel" id="panel-arch">
+    <iframe src="vcc-architecture.html" title="VCC 架构图" style="width:100%;height:90vh;border:1px solid var(--border);border-radius:var(--radius)"></iframe>
+  </div>
+
   <div class="toast" id="toast"></div>
   <div class="footer">
-    新加坡同事：<a href="https://AndyYi-claude.github.io/vcc-project/dashboard.html" target="_blank">GitHub Pages</a> ·
-    国内免翻：<a href="https://gitee.com/AndyYi98/vcc-project/blob/main/01-dashboard.md" target="_blank">Gitee 看板</a> ·
+    <a href="https://AndyYi-claude.github.io/vcc-project/dashboard.html" target="_blank">GitHub Pages</a> ·
+    <a href="https://gitee.com/AndyYi98/vcc-project/blob/main/01-dashboard.md" target="_blank">Gitee 看板</a> ·
     <a href="https://gitee.com/AndyYi98/vcc-project/blob/main/02-tasks.md" target="_blank">Gitee 任务</a>
   </div>
-
-</div><!-- /container -->
+</div>
 
 <script>
 function switchTab(name){
@@ -298,11 +289,8 @@ function switchTab(name){
   document.querySelector('.tab-btn[onclick*="'+name+'"]').classList.add('active');
   document.getElementById('panel-'+name).classList.add('active');
 }
-
 document.querySelectorAll('[data-id]').forEach(tr=>{
-  if(localStorage.getItem('vcc-'+tr.getAttribute('data-id'))==='1'){
-    tr.classList.add('done'); tr.querySelector('input').checked=true;
-  }
+  if(localStorage.getItem('vcc-'+tr.getAttribute('data-id'))==='1'){ tr.classList.add('done'); tr.querySelector('input').checked=true; }
 });
 function toggleTask(cb){
   const tr=cb.closest('tr'), id=tr.getAttribute('data-id'), n=tr.querySelector('.col-name').textContent.trim();
@@ -310,10 +298,7 @@ function toggleTask(cb){
   else { tr.classList.remove('done'); localStorage.removeItem('vcc-'+id); }
 }
 function resetAll(){
-  if(confirm('确定重置所有勾选？')){
-    document.querySelectorAll('[data-id]').forEach(tr=>{ tr.classList.remove('done'); tr.querySelector('input').checked=false; localStorage.removeItem('vcc-'+tr.getAttribute('data-id')); });
-    showToast('已重置');
-  }
+  if(confirm('确定重置？')){ document.querySelectorAll('[data-id]').forEach(tr=>{ tr.classList.remove('done'); tr.querySelector('input').checked=false; localStorage.removeItem('vcc-'+tr.getAttribute('data-id')); }); showToast('已重置'); }
 }
 function showToast(m){ const e=document.getElementById('toast'); e.textContent=m; e.classList.add('show'); clearTimeout(e._t); e._t=setTimeout(()=>e.classList.remove('show'),3000); }
 </script>
