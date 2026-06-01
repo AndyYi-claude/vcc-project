@@ -169,10 +169,9 @@ MAS 资管牌照申请中 · VCC 设立全面推进 · PM 天翼
 | ○ | 托管账户开立（后续确定） | Kevin + Derry |
 | ○ | 运营账户 + 资本催缴账户 | Kevin + Derry |
 
-### P5 · 服务商 `2/7`
+### P5 · 服务商 `1/6`
 
 | ◐ | Fund Admin Sourcing——筛选候选名单 | Kevin |
-| ○ | 提前与 FA 沟通——发牌照草案收集意见 | 天翼 + Inez |
 | 🔵 | Fund Admin RFP 正式流程 | Kevin + 天翼 |
 | 🔵 | 审计师（四大）选型 | 天翼 + Inez |
 | 🔵 | 税务顾问选型 | 天翼 + Inez |
