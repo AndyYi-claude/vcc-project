@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><style>
+:root{--bg:#fff;--border:#d4d8de;--text:#1e293b;--dim:#94a3b8;--accent:#3b82f6;--green:#16a34a;--amber:#d97706;--red:#dc2626;--radius:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:#fff;color:var(--text);padding:30px 36px;width:1280px}
+h2{font-size:16px;font-weight:700;margin-bottom:12px}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:18px}
+.card h2{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--accent)}
+
+.phase{margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.phase-num{font-size:10px;font-weight:700;color:#fff;background:var(--accent);border-radius:3px;padding:1px 7px;min-width:28px;text-align:center;flex-shrink:0}
+.phase-num.hot{background:var(--red)}.phase-num.done{background:var(--green)}
+.phase-name{font-size:12px;font-weight:600;min-width:70px;flex-shrink:0}
+.phase-bar{flex:1;height:5px;background:#e8ecf1;border-radius:2px;overflow:hidden}
+.phase-fill{height:100%;background:var(--green);border-radius:2px}
+.phase-stat{font-size:11px;font-weight:600;color:var(--dim);min-width:30px;text-align:right}
+.phase-steps{font-size:10px;color:var(--dim);padding-left:36px;margin-bottom:3px}
+.pi-d{color:var(--green)}.pi-w{color:var(--amber)}
+
+.tl{position:relative;padding-left:28px;font-size:11px}
+.tl::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:1.5px;background:var(--border)}
+.tl-day{margin-bottom:10px;position:relative}
+.tl-day::before{content:'';position:absolute;left:-24px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 2px #eff6ff}
+.tl-date{font-size:12px;font-weight:700;margin-bottom:2px}
+.tl-event{font-size:11px;padding:1px 0;color:var(--dim)}
+
+.dec{list-style:none;font-size:11px}
+.dec li{padding:4px 0;border-bottom:1px solid #f1f5f9}
+.dec li:last-child{border-bottom:none}
+</style></head><body>
+
+<!-- Phase Progress -->
+<div class="card"><h2>全流程进度明细</h2>
+
+<div class="phase">
+  <span class="phase-num done">P0</span><span class="phase-name">项目启动</span><div class="phase-bar"><div class="phase-fill" style="width:100%;background:var(--green)"></div></div><span class="phase-stat" style="color:var(--green)">3/3 ✓</span>
+</div>
+<div class="phase-steps"><span class="pi-d">✓ 确定团队</span>  <span class="pi-d">✓ 拉协同群</span>  <span class="pi-d">✓ 顾问报价+参考文件</span></div>
+
+<div class="phase">
+  <span class="phase-num">P1</span><span class="phase-name">结构设计</span><div class="phase-bar"><div class="phase-fill" style="width:40%"></div></div><span class="phase-stat">2/5</span>
+</div>
+<div class="phase-steps"><span class="pi-d">✓ 1封闭+1开放已定</span>  <span class="pi-w">∘ 子基金规划</span>  ○ 13O vs 13U  ○ 单一投资者  ○ 注册地址/秘书</div>
+
+<div class="phase">
+  <span class="phase-num">P2</span><span class="phase-name">文件起草</span><div class="phase-bar"><div class="phase-fill" style="width:20%;background:var(--amber)"></div></div><span class="phase-stat">1/5</span>
+</div>
+<div class="phase-steps"><span class="pi-w">◐ 主PPM起草中</span>  ○ 子基金补充文件  ○ VCC章程  ○ 13O/13U材料  ○ 法律文件内审</div>
+
+<div class="phase">
+  <span class="phase-num">P3</span><span class="phase-name">牌照+注册</span><div class="phase-bar"><div class="phase-fill" style="width:25%;background:var(--amber)"></div></div><span class="phase-stat">1/4</span>
+</div>
+<div class="phase-steps">⏳ MAS IPA获批  <span class="pi-w">∘ 股东披露(6/4)</span>  ○ VCC注册  ○ 提交13O/13U</div>
+
+<div class="phase">
+  <span class="phase-num hot">P4</span><span class="phase-name" style="color:var(--red)">银行开户</span><div class="phase-bar"><div class="phase-fill" style="width:25%;background:var(--red)"></div></div><span class="phase-stat">1/4</span>
+</div>
+<div class="phase-steps"><span class="pi-w">◐ JPM/浦发/BNY SF清单</span>  ○ 基金账户开立(优先)  ○ 托管账户  ○ 运营账户</div>
+
+<div class="phase">
+  <span class="phase-num">P5</span><span class="phase-name">服务商</span><div class="phase-bar"><div class="phase-fill" style="width:16%;background:var(--amber)"></div></div><span class="phase-stat">1/6</span>
+</div>
+<div class="phase-steps"><span class="pi-w">◐ FA Sourcing</span>  <span class="pi-w">∘ 提前与FA沟通</span>  <span style="color:var(--dim)">🔵 FA RFP  🔵 审计  🔵 税务  🔵 秘书  🔵 托管人签约</span></div>
+
+<div class="phase">
+  <span class="phase-num">P6</span><span class="phase-name">运营上线</span><div class="phase-bar"><div class="phase-fill" style="width:0%"></div></div><span class="phase-stat">0/4</span>
+</div>
+<div class="phase-steps" style="color:var(--dim)">🔵 首子基金上线  🔵 投资人onboarding  🔵 后续SF复制  🔵 持续合规</div>
+</div>
+
+<!-- Timeline -->
+<div class="card"><h2>项目时间线</h2><div class="tl">
+<div class="tl-day"><div class="tl-date">2026-06-01</div><div class="tl-event">P0 启动全部完成；JPM/浦发对比推进中</div></div>
+<div class="tl-day"><div class="tl-date">2026-05-25</div><div class="tl-event">与 Ian 沟通：股东披露(6/4)、SF费用、成本分摊、FA提前对接</div></div>
+<div class="tl-day"><div class="tl-date">2026-05-20</div><div class="tl-event">与浦发沟通 VCC 架构 | Kevin 启动 FA Sourcing</div></div>
+<div class="tl-day"><div class="tl-date">2026-05-19</div><div class="tl-event">拉建协同群（Kevin）</div></div>
+<div class="tl-day"><div class="tl-date">2026-05-18</div><div class="tl-event">启动会议 · 天翼任 PM · 项目管理体系上线</div></div>
+</div></div>
+
+<!-- Key Decisions -->
+<div class="card"><h2>关键决策</h2><ul class="dec">
+<li>设立 2 个 VCC：1 个封闭式 + 1 个开放式，不混搭 ✓</li>
+<li>单一 VCC 子基金上限 10-15 个</li>
+<li>银行账户设给 Subfund 层面 | 基金户先行，托管户后续</li>
+<li>核心候选：JPM ($20亿门槛/$1万月起) vs 浦发 (无门槛/20bp年费)</li>
+<li>牌照下发当日提交 13O/13U 申请</li>
+<li>Fund Admin 未拿 IPA 也可提前沟通 | VCC 设立成本 5 年摊销</li>
+</ul></div>
+
+</body></html>
