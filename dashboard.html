@@ -123,7 +123,7 @@
     <div class="header">
       <div>
         <h1>诺亚新加坡 VCC 设立</h1>
-        <div class="sub">MAS 资管牌照申请中 · PM：天翼 · 更新：2026-06-01</div>
+        <div class="sub">MAS 资管牌照申请中 · PM：天翼 · 更新：<span id="updateDate"></span></div>
       </div>
     </div>
 
@@ -301,6 +301,9 @@
 </div>
 
 <script>
+const today = new Date();
+document.getElementById('updateDate').textContent = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+
 function switchTab(name){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
