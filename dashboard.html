@@ -140,7 +140,7 @@
         <div class="person">
           <div class="person-header"><span class="avatar av-K">K</span> Kevin（COO）</div>
           <table class="task-table">
-            <tr data-id="k1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">确认托管行</td><td class="col-ddl">本周</td></tr>
+            <tr data-id="k1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">确认托管行</td><td class="col-ddl"></td></tr>
             <tr data-id="k2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">Fund Admin Sourcing</td><td class="col-ddl"></td></tr>
             <tr data-id="k4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">与 Lucas 确定 VCC 结构方案</td><td class="col-ddl"></td></tr>
             <tr data-id="k5"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">确定 13O vs 13U</td><td class="col-ddl"></td></tr>
@@ -166,7 +166,7 @@
           <table class="task-table">
             <tr data-id="t1"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理银行账户整体框架</td><td class="col-ddl">本周</td></tr>
             <tr data-id="t3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">整理开户材料、协调内部签字</td><td class="col-ddl"></td></tr>
-            <tr data-id="t4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">协调对接律师初稿 → 预审 KYC</td><td class="col-ddl"></td></tr>
+            <tr data-id="t4"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">准备开户材料</td><td class="col-ddl"></td></tr>
           </table>
         </div>
 
@@ -182,7 +182,7 @@
           <div class="person-header"><span class="avatar av-L">L</span> Lucas / Ian（外部律师）</div>
           <table class="task-table">
             <tr data-id="l2"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-wip">◐</span></td><td class="col-name">PPM 起草中（6-8 周）</td><td class="col-ddl"></td></tr>
-            <tr data-id="l3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">待回复：股东持股问题反馈</td><td class="col-ddl"></td></tr>
+            <tr data-id="l3"><td class="col-chk"><input type="checkbox" onchange="toggleTask(this)"></td><td class="col-status"><span class="status-icon s-todo">○</span></td><td class="col-name">已反馈股东持股，待MAS回复</td><td class="col-ddl"></td></tr>
           </table>
         </div>
       </div>
@@ -249,8 +249,8 @@
       </div>
 
       <div>
-        <div class="phase-head"><span class="phase-num hot">P4</span><span class="phase-name" style="color:var(--red)">银行开户</span><div class="phase-bar"><div class="phase-fill" style="width:50%;background:var(--red)"></div></div><span class="phase-stat">2/4</span></div>
-        <div class="phase-items"><span class="pi-done">✓ KYC材料已获取(6/5) 6/8反馈第一轮</span> <span>○ 基金账户开立(优先)</span> <span>○ 托管账户</span> <span>○ 运营账户</span></div>
+        <div class="phase-head"><span class="phase-num hot">P4</span><span class="phase-name" style="color:var(--red)">银行开户</span><div class="phase-bar"><div class="phase-fill" style="width:25%;background:var(--red)"></div></div><span class="phase-stat">1/4</span></div>
+        <div class="phase-items"><span class="pi-done">✓ KYC材料已获取(6/5)</span> <span class="pi-wip">◐ 基金账户开立(优先)</span> <span>○ 托管账户</span> <span>○ 运营账户</span></div>
       </div>
 
       <div>
@@ -266,7 +266,9 @@
 
     <!-- Timeline -->
     <div class="card" style="margin-bottom:20px"><h2>项目时间线</h2><div class="tl">
-      <div class="tl-day"><div class="tl-date">2026-06-01</div><div class="tl-event"><div class="tl-icon">🔵</div>P0 项目启动全部完成；JPM/浦发对比方案推进中</div></div>
+      <div class="tl-day"><div class="tl-date">2026-06-05</div><div class="tl-event"><div class="tl-icon">📋</div>KYC材料获取，预计6/8反馈第一轮；股东持股已反馈MAS</div></div>
+      <div class="tl-day"><div class="tl-date">2026-06-04</div><div class="tl-event"><div class="tl-icon">✓</div>MAS股东信披正式回复</div></div>
+      <div class="tl-day"><div class="tl-date">2026-06-01</div><div class="tl-event"><div class="tl-icon">🔵</div>P0启动完成；JPM/浦发对比推进中</div></div>
       <div class="tl-day"><div class="tl-date">2026-05-25</div><div class="tl-event"><div class="tl-icon">💬</div>与 Ian 沟通：股东披露(6/4)、SF费用、成本分摊、FA提前对接</div></div>
       <div class="tl-day"><div class="tl-date">2026-05-20</div><div class="tl-event"><div class="tl-icon">💬</div>与浦发沟通 VCC 架构 | 📋 Kevin 启动 FA Sourcing</div></div>
       <div class="tl-day"><div class="tl-date">2026-05-19</div><div class="tl-event"><div class="tl-icon">✅</div>拉建协同群（Kevin）</div></div>
