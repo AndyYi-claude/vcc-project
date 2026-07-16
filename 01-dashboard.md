@@ -1,10 +1,10 @@
 # 诺亚新加坡 VCC 设立 · 项目看板
 
-MAS 资管牌照申请中 · VCC 设立全面推进 · PM 天翼
+MAS Offer Letter 已收到 (7/7) · VCC 设立 + 前置条件并行推进 · PM 天翼
 
-**当前优先级：银行开户 > Fund Admin 选型 > 结构设计 > 文件起草 > 服务商选型**
+**当前优先级：前置条件满足 > 银行开户 > Fund Admin 选型 > VCC 注册**
 
-更新：2026-06-11
+更新：2026-07-14
 
 ---
 
@@ -12,65 +12,64 @@ MAS 资管牌照申请中 · VCC 设立全面推进 · PM 天翼
 
 | 姓名 | 角色 | 职责范围 |
 |---|---|---|
-| **Kevin** | COO | 合规与运营总负责、银行关系、Fund Admin Sourcing |
-| **Derry** | 运营支持 | 对接银行沟通、开户材料、KYC 推进 |
-| **Will** | 法务 | MAS 股东信息披露 |
-| **Joyce** | — | — |
-| **Yihao** | 投资负责人 | 投资策略、VCC 产品使用 |
+| **Yin Hao** | CEO & Executive Director | 公司管理、投资决策签字 |
+| **Liu Yihao** | Executive Director / PM（一级） | PE 基金投资管理 |
+| **徐毅夫** | PM（二级） | 对冲基金投资管理，RO 申请中 |
+| **Kevin** | COO · 合规 | 运营统筹、银行关系、FA 对接、MAS 申报 |
+| **Will** | 法务 | 合同审阅、牌照材料、MAS 信息披露 |
 | **天翼** | PM | 项目统筹、进度追踪 |
-| **Inez** | PM 支持 | 配合天翼推进项目管理 |
-| **Lucas / Ian** | 外部法律顾问 | VCC 文件起草、注册、税收激励 |
+| **Lucas / Ian** | 外部法律顾问 | VCC 文件起草、注册、AIP Response、13O/13U |
 
 ---
 
 ## 当前待办
 
-### Kevin（COO）
+### Yin Hao（CEO）
 
 | 状态 | 行动项 | DDL |
 |---|---|---|
-| ◐ | 确认托管行 | |
-| ✓ | Fund Admin Sourcing——已提供联系方式和范围给天翼 | |
-| ○ | 与 Lucas 确定 VCC 结构方案 | |
-| ○ | 确定 13O vs 13U 税收方案 | |
+| 🔴 | 签署 Annex B（Letter of Undertaking）+ Annex D（Letter of Confirmation）| 本周 |
+| 🔴 | Aon PI 投保表签字 | 本周 |
+
+### Liu Yihao
+
+| 状态 | 行动项 | DDL |
+|---|---|---|
+| 🔴 | 同上签署 Annex B + Annex D | 本周 |
+
+### Kevin（COO · 合规）
+
+| 状态 | 行动项 | DDL |
+|---|---|---|
+| 🔴 | 确认合规服务商（Ingenia vs Integrity） | 本周 |
+| 🔴 | 安排 Noah Holdings Annex C 签字 + 董事会决议 | 本周 |
+| 🔴 | 提供三年商业计划书（PI 保险用） | 本周 |
+| ○ | Fund Admin Sourcing | |
+| ○ | 确认合规委员会成员 CV（PI 保险用） | |
+| ○ | 招聘运营（二级优先） | |
 
 ### Will（法务）
 
 | 状态 | 行动项 | DDL |
 |---|---|---|
-| ✓ | MAS 股东信息披露——6月4日已回复，等MAS答复 | 已完成 |
+| ✅ | 审阅 AIP Response 草案 | 已完成 |
+| 🔴 | 协调 AIP 签字材料收发 | 本周 |
 
-### Derry（运营支持）
-
-| 状态 | 行动项 | DDL |
-|---|---|---|
-| ◐ | 联系 DBS / BNY 开户对接人员 | 本周 |
-
-### 天翼 + Inez（PM）
+### 天翼（PM）
 
 | 状态 | 行动项 | DDL |
 |---|---|---|
-| ○ | 整理银行账户整体框架 | 本周 |
-| ◐ | 对接 Fund Admin（Kevin 已提供联系方式和范围） | |
-| ✓ | KYC 第一轮反馈已提交（6/11）；JPM + 浦发开户材料已发银行审核 | 已完成 |
-| ○ | 服务商选型调研（审计/税务/公司秘书，后置） | |
-
-### Yihao（投资负责人）
-
-| 状态 | 行动项 | DDL |
-|---|---|---|
-| ○ | 明确投资策略与产品方向 | |
-| ○ | 明确投资/募资与银行账户间的需求 | |
+| 🔴 | 填写 GIRO 表 + Billing Details 在线提交 | 本周 |
+| 🔴 | 发送 PI 投保材料给 Aon | 本周 |
+| ○ | 更新 PI Proposal Form 持牌状态 | |
+| ○ | 跟进 JPM / 浦发 KYC 审核反馈 | |
 
 ### Lucas / Ian（外部律师）
 
 | 状态 | 行动项 | DDL |
 |---|---|---|
-| ✓ | 新 SF 费用 + VCC 成本分摊回复 | 已完成 |
-| ✓ | 发送报价单 + VCC 参考文章 | |
-| ◐ | PPM 起草中——已完成子基金框架搭建 | |
-| ✓ | 已反馈：股东持股问题，待 MAS 进一步回复 | |
-| ○ | 讨论并确定整体 VCC 设立框架 | |
+| ◐ | PPM 起草中（6-8 周） | |
+| 🔴 | 收齐签字材料后提交 AIP Response 给 MAS | 下周 |
 
 ---
 
@@ -78,55 +77,63 @@ MAS 资管牌照申请中 · VCC 设立全面推进 · PM 天翼
 
 | 时限 | 事项 | 负责人 |
 |---|---|---|
-| 6月4日 | MAS 股东信息披露已回复，等MAS答复 | Will ✓ |
-| 本周 | JPM / 浦发 确定主合作行 | Kevin |
-| — | KYC 第一轮已提交，等银行回复 | 天翼 + Inez ✓ |
+| 🔴 本周 | Annex B/C/D 签字完成 | Yin Hao / Liu Yihao / Noah |
+| 🔴 本周 | GIRO 表提交 | 天翼 |
+| 🔴 下周 | AIP Response 提交 MAS | Lucas |
+| 🔴 7 月 28 日（3 周截止） | MAS Offer Letter 确认回复 | 全员 |
 
 ---
 
 ## 进展总览
 
+### MAS 牌照
+
+| 事项 | 状态 |
+|---|---|
+| MAS Offer Letter 收到（2026.07.07） | ✅ |
+| AIP Response 审阅 | ✅ |
+| Annex B/D 签字（Olive） | 🔴 本周 |
+| Annex C 签字（Noah Holdings） | 🔴 等 Noah 确认签字人 |
+| 合规聘书 | 🔴 Kevin 确认供应商 |
+| PI 保单 | ⏳ Aon 投保中 |
+| GIRO + Billing Details | 🔴 本周提交 |
+
 ### 托管行开户
 
 | 银行 | 角色 | 要求 | 费用 | 状态 |
 |---|---|---|---|---|
-| **J.P. Morgan** | 主托管候选 | AUM ≥ $20亿 | $10,000/月 起 | KYC 材料已提交审核 |
+| **J.P. Morgan** | 主托管候选 | AUM ≥ $20 亿 | $10,000/月 起 | KYC 材料已提交审核 |
 | **浦发新加坡** | 托管/运营候选 | 无门槛 | AUM 20bp/年 | KYC 材料已提交审核 |
-| DBS | 托管备选/运营候选 | 待确认 | 待确认 | 联系中，暂无信息 |
-| BNY | 备选 | 待确认 | 待确认 | 尚未对接 |
-
-> 策略：基金账户优先开立，托管户后续确定。建议托管+基金户同行以提高效率。
+| DBS | 托管备选 | 待确认 | 待确认 | 联系中 |
+| BNY | 备选 | 待确认 | 待确认 | 联系中 |
 
 ### 外部顾问 ↔ 内部团队
 
-| 事项 | 状态 | 下一步 |
-|---|---|---|
-| ✓ 律师报价 + 参考文章 | 已发送 | 已确认 |
-| ✓ 新 SF 费用 + 成本分摊 | 已回复 | — |
-| ◐ VCC 主 PPM 起草 | 进行中 | Lucas 执笔，Kevin 审核 |
-| ✓ 股东持股问题已反馈 MAS | 已回复 | 等待监管反馈 |
-| VCC 结构方案 | ✓ 1封闭+1开放 | Kevin+Lucas 细化 |
+| 事项 | 状态 |
+|---|---|
+| AIP Response 草案 | ✅ 审阅完成，待签字提交 |
+| ✓ 律师报价 + 参考文章 | 已完成 |
+| ✓ 新 SF 费用 + 成本分摊 | 已回复 |
+| ◐ PPM 起草 | Lucas 进行中 |
+| ⏳ PI 投保 | Aon 材料准备中 |
 
 ### Fund Admin 选型
 
 | 事项 | 状态 |
 |---|---|
 | Kevin 筛选候选名单 | 进行中 |
-| 提前与 FA 沟通——未拿 IPA 也可发牌照草案 | 可启动 |
-| RFP 正式流程 | VCC 注册前 2-3 月启动 |
+| RFP 正式流程 | VCC 注册前启动 |
 
 ---
 
 ## 关键决策
 
-- 设立 **2 个 VCC**：**1 封闭式 + 1 开放式**，不混搭 ✓
-- 单一 VCC 子基金上限 **10-15 个**
-- 银行账户设给 **Subfund 层面**
-- **基金户先行**，托管户后续确定
-- 核心候选：**JPM（$20亿门槛）vs 浦发（无门槛）**
-- 牌照下发**当日**提交 13O/13U
-- Fund Admin 未拿 IPA 也可提前沟通
-- VCC 设立成本 **5 年摊销**至各 SF
+- 设立 **2 个 VCC 子基金**：1 封闭式 PE + 1 开放式对冲基金 ✓
+- 银行账户设给 Subfund 层面，基金户先行，托管户后续
+- 核心候选：**JPM（$20 亿门槛）vs 浦发（无门槛）**
+- 牌照下发后 → VCC 注册 → 13O/13U 申请
+- 合规服务商待定：Ingenia vs Integrity Consulting
+- PI 保险：Aon / Investment Management Insurance
 
 ---
 
@@ -140,50 +147,50 @@ MAS 资管牌照申请中 · VCC 设立全面推进 · PM 天翼
 
 ### P1 · 结构设计 `2/5`
 
-| ✓ | VCC 数量与策略划分——1 封闭式 + 1 开放式 | Kevin + Lucas |
+| ✓ | VCC 数量与策略划分——1 封闭式 PE + 1 对冲基金 | Kevin + Lucas |
 | ∘ | 子基金规划（规划中） | Kevin + Lucas |
 | ○ | 13O vs 13U 税收方案 | Kevin + Lucas |
 | ○ | 单一投资者应对方案 | Lucas |
 | ○ | 注册地址 / 公司秘书确定 | 天翼 |
 
-### P2 · 文件起草 `1/5` — 外部律师主导
+### P2 · 文件起草 `1/5`
 
-| ◐ | 主 PPM 起草——已完成子基金框架搭建 | Lucas 团队 |
+| ◐ | 主 PPM 起草（进行中） | Lucas 团队 |
 | ○ | 子基金补充文件起草 | Lucas 团队 |
 | ○ | VCC 章程（Constitution）起草 | Lucas 团队 |
 | ○ | 13O/13U 申请材料准备 | Lucas + Kevin |
 | ○ | 法律文件内部审核 | Kevin |
 
-### P3 · 牌照+注册 `2/4` — 外部依赖
+### P3 · 牌照+注册 `3/4` — 🚀 Offer Letter 阶段
 
-| ⏳ | MAS 资管牌照（IPA）获批 | MAS |
-| ✓ | MAS 股东信息披露——6月4日已回复，等MAS答复 | Will |
+| ✅ | MAS Offer Letter 收到（2026.07.07） | MAS |
+| ✅ | 股东信息披露已回复 | Will |
+| 🔴 | AIP Response 回复 + 前置条件满足 | 全员 |
 | ○ | ACRA 提交 VCC 注册 | Lucas + 天翼 |
-| ○ | 同日提交 13O/13U 申请 | Lucas + Kevin |
 
-### P4 · 银行开户 `1/4` — 最高优先级
+### P4 · 银行开户 `2/4`
 
-| ✓ | JPM + 浦发 开户 KYC 材料已提交银行审核 | 天翼 + Inez |
-| ◐ | 基金账户开立（优先）——等银行反馈 | Kevin + Derry + 天翼/Inez |
-| ○ | 托管账户开立（后续确定） | Kevin + Derry |
-| ○ | 运营账户 + 资本催缴账户 | Kevin + Derry |
+| ✓ | JPM + 浦发 KYC 材料已提交审核 | 天翼 + Inez |
+| ◐ | 基金账户开立（等银行反馈） | Kevin + Derry |
+| ○ | 托管账户开立 | Kevin + Derry |
+| ○ | DBS / BNY 对接 | Derry |
 
 ### P5 · 服务商 `1/6`
 
-| ✓ | Fund Admin Sourcing——已提供联系方式和范围给天翼 | Kevin |
-| 🔵 | Fund Admin RFP 正式流程 | Kevin + 天翼 |
-| 🔵 | 审计师（四大）选型 | 天翼 + Inez |
-| 🔵 | 税务顾问选型 | 天翼 + Inez |
-| 🔵 | 公司秘书确定 | 天翼 + Inez |
-| 🔵 | 托管人签约 | Kevin |
+| ◐ | Fund Admin Sourcing | Kevin |
+| ⏳ | PI 保险（Aon） | 天翼 |
+| 🔵 | FA RFP | Kevin + 天翼 |
+| 🔵 | 审计师（四大） | Deloitte ✅ |
+| 🔵 | 税务顾问 | 天翼 + Inez |
+| 🔵 | 公司秘书 | 天翼 + Inez |
 
-### P6 · 运营上线 `0/4` — 等待前置
+### P6 · 运营上线 `0/4`
 
-| 🔵 | 首个子基金上线 | Yihao + 全体 |
-| 🔵 | 首个投资人 onboarding | Yihao + Kevin |
-| 🔵 | 后续子基金复制 | Yihao + Lucas |
-| 🔵 | 持续合规运转 | Kevin + 天翼 |
+| 🔵 | 运营（二级）招聘 | Kevin |
+| 🔵 | 首个子基金上线 | Q4 2026 |
+| 🔵 | 投资人 onboarding | Yihao + Kevin |
+| 🔵 | 持续合规运转 | Kevin |
 
 ---
 
-> 任务明细：[02-tasks.md](./02-tasks.md) · 时间线：[05-timeline.md](./05-timeline.md) · 风险：[04-risks.md](./04-risks.md)
+> 任务明细：[02-tasks.md](./02-tasks.md) · 牌照追踪：[MAS-牌照前置条件追踪.md](./MAS-牌照前置条件追踪.md) · 时间线：[05-timeline.md](./05-timeline.md)
