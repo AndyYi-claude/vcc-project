@@ -18,17 +18,9 @@
 
 ---
 
-## 二、PI 职业责任险
+## 二、PI 职业责任险 ✅ 已提交
 
-**供应商**：Aon | **险种**：Investment Management Insurance
-
-| 材料 | 状态 | 负责人 | 说明 |
-|---|---|---|---|
-| Updated Proposal Form | ⏳ 待更新 | 天翼 | 去年 Charlene 已填，需更新持牌状态和业务状态 |
-| 三年商业计划书（含收入成本预测） | 🔴 待准备 | Kevin / Yihao | Aon 要求 |
-| FY2025 审计财务报表 | ✅ 已有 | 天翼 | `银行账户开立\99_我方提供文件\FS 2025 12-N03090.xlsx` |
-| 核心管理层 CV（CEO/CIO/CFO/COO） | ✅ 已有 | 天翼 | Liu Yihao + Yin Hao MAS Form 3A 可复用 |
-| PPM（基金说明书） | ⏳ Lucas 起草中 | Lucas | P2 文件起草，预计 6-8 周 |
+**供应商**：Aon | **险种**：Investment Management Insurance | **状态**：材料已发送，等待 Aon 出具保单时间线
 
 ---
 
@@ -47,7 +39,7 @@
 
 | 材料 | 状态 | 负责人 | 说明 |
 |---|---|---|---|
-| 合规服务商聘书 | 🔴 待获取 | **Kevin 确认** | ⚠️ MAS 文件中列的是 **Ingenia Consultants Pte. Ltd.**，但 Kevin 实际洽谈的是 **Integrity Consulting Pte Ltd**（Sin Yee, Director）。需确认：是否已更换服务商？若已换，Annex E 提供 Integrity 聘书 + 同步通知 MAS |
+| 合规服务商聘书 | ✅ 已确定 | **Integrity Consulting**（Sin Yee） | 已选定 Integrity。预计 8 月到位，等 Sin Yee 回复具体 timeline |
 
 ---
 
